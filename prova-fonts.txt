@@ -1,0 +1,62 @@
+=== amics+de+les+arts
+  tipus: []
+=== tete+bebo
+  tipus: []
+=== park+g%C3%BCell
+ - Visites guiades al Park Güell | Acte permanent | Park Güell | detall/visites-guiades-al-park-guell_99400420573.html
+  tipus: [('0061901012', 'Visites, rutes i excursions (1)')]
+=== festival+de+jazz
+ - Festival de Jazz i Música Creativa de Ciutat Vella 2026 | Del 08/10/2026 al 12/12/2026 | Diversos llocs de Barcelona | detall/festival-de-jazz-i-musica-creativa-de-ciutat-vella-2026_99400743664.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Michel Camilo Trio amb Ricky Rodríguez i Antonio Sánchez" | 16/10/2026 | Palau de la Música Catalana | detall/concert-michel-camilo-trio-amb-ricky-rodriguez-i-antonio-sanchez_99400774957.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Andrea Motis   Yamandu Costa" | 21/10/2026 | Palau de la Música Catalana | detall/concert-andrea-motis-yamandu-costa_99400770042.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Barcelona Jazz Orquestra. Tot recordant Satchmo (homenatge a Louis Armstrong)" | 22/10/2026 | Palau de la Música Catalana | detall/concert-barcelona-jazz-orquestra-tot-recordant-satchmo-homenatge-a-louis-armstrong_99400770046.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Laura Marchal" | 24/10/2026 | Jamboree 3 | detall/concert-laura-marchal_99400781048.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Rajery   Raúl Rodríguez" | 25/10/2026 | Jamboree 3 | detall/concert-rajery-raul-rodriguez_99400787745.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Ibrahim Maalouf" | 28/10/2026 | Sala Apolo | detall/concert-ibrahim-maalouf_99400784684.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "30 aniversario Omega" | 30/10/2026 | Palau de la Música Catalana | detall/concert-30-aniversario-omega_99400774958.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Hermeto's Mothership' | 01/11/2026 | Jamboree | detall/concert-hermeto-s-mothership_99400782425.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Nate Smith" | 02/11/2026 | Sala Apolo | detall/concert-nate-smith_99400781050.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Branford Marsalis Quartet & Dianne Reeves celebrate John Coltrane" | 03/11/2026 | Palau de la Música Catalana | detall/concert-branford-marsalis-quartet-dianne-reeves-celebrate-john-coltrane_99400774959.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Sant Andreu Jazz Band All Stars. Retrat d'artista - Frank & Louis" | 04/11/2026 | Sala de Festes La Paloma | detall/concert-sant-andreu-jazz-band-all-stars-retrat-d-artista-frank-louis_99400774960.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Kurt Rosenwinkel" | 05/11/2026 | Fundació Conservatori del Liceu | detall/concert-kurt-rosenwinkel_99400782431.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Vijay Iyer" | 06/11/2026 | Fundació Conservatori del Liceu | detall/concert-vijay-iyer_99400782433.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Quiet Colors" | 07/11/2026 | Jamboree 3 | detall/concert-quiet-colors_99400782436.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Kyle Eastwood" | 10/11/2026 | Sala Paral·lel 62 | detall/concert-kyle-eastwood_99400782437.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Miguel Zenón i Luis Perdomo" | 11/11/2026 | Fundació Conservatori del Liceu | detall/concert-miguel-zenon-i-luis-perdomo_99400782438.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Sofia Ribeiro" | 12/11/2026 | Jamboree 3 | detall/concert-sofia-ribeiro_99400782439.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Mark Guiliana beat music" | 12/11/2026 | Fundació Conservatori del Liceu | detall/concert-mark-guiliana-beat-music_99400782440.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Samara Joy" | 13/11/2026 | Palau de la Música Catalana | detall/concert-samara-joy_99400781052.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Niño Josele" | 14/11/2026 | Fundació Conservatori del Liceu | detall/concert-nino-josele_99400782441.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Haydée Milanés - Javier Colina" | 16/11/2026 | Fundació Conservatori del Liceu | detall/concert-haydee-milanes-javier-colina_99400782442.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Chris Potter" | 17/11/2026 | Fundació Conservatori del Liceu | detall/concert-chris-potter_99400783134.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Joan Chamorro presenta Pau Garcia, Lola Peñaranda i Clàudia Rostey" | 18/11/2026 | L'Auditori de Barcelona - Sala 2 Oriol Martorell | detall/concert-joan-chamorro-presenta-pau-garcia-lola-penaranda-i-claudia-rostey_99400781053.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Playgrxvnd" | 18/11/2026 | Sala de Festes La Paloma | detall/concert-playgrxvnd_99400784687.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Mary Halvorson Canis Major" | 19/11/2026 | Fundació Conservatori del Liceu | detall/concert-mary-halvorson-canis-major_99400783135.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Vicente Amigo" | 20/11/2026 | Palau de la Música Catalana | detall/concert-vicente-amigo_99400784689.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Albert Cirera & Tres Tambors" | 21/11/2026 | Jamboree | detall/concert-albert-cirera-tres-tambors_99400781056.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Lela Soto" | 24/11/2026 | Jamboree 3 | detall/concert-lela-soto_99400781058.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Eddie Henderson Quartet" | Del 24/11/2026 al 25/11/2026 | Jamboree | detall/concert-eddie-henderson-quartet_99400783137.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "María Marín" | 25/11/2026 | Jamboree 3 | detall/concert-maria-marin_99400781059.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Sant Andreu Dixie Band" | 25/11/2026 | Sala de Festes La Paloma | detall/concert-sant-andreu-dixie-band_99400781060.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Tríada" | 26/11/2026 | Jamboree 3 | detall/concert-triada_99400787747.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Terraza - Wakenius - Boussaguet" | 26/11/2026 | L'Auditori de Barcelona - Sala 2 Oriol Martorell | detall/concert-terraza-wakenius-boussaguet_99400783138.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Ethan Iverson - Bill McHenry" | 27/11/2026 | Jamboree 3 | detall/concert-ethan-iverson-bill-mchenry_99400784691.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Israel Fernández" | 27/11/2026 | Palau de la Música Catalana | detall/concert-israel-fernandez_99400786567.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Marta Robles i Alicia Grillo" | 28/11/2026 | Jamboree 3 | detall/concert-marta-robles-i-alicia-grillo_99400786568.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Ramon Mirabet All Stars Jazz Project" | 28/11/2026 | Palau de la Música Catalana | detall/concert-ramon-mirabet-all-stars-jazz-project_99400770049.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Omar Sosa - Marcelo Woloski - Focus Quartet" | 30/11/2026 | Fundació Conservatori del Liceu | detall/concert-omar-sosa-marcelo-woloski-focus-quartet_99400783139.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Antonio Serrano - Kaele Jiménez" | 01/12/2026 | Fundació Conservatori del Liceu | detall/concert-antonio-serrano-kaele-jimenez_99400783140.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Las Migas" | 03/12/2026 | Palau de la Música Catalana | detall/concert-las-migas_99400786570.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Belén Bandera - Carla Motis Quartet" | 04/12/2026 | Jamboree 3 | detall/concert-belen-bandera-carla-motis-quartet_99400783143.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Sara Lilu - Alesander Peña" | 05/12/2026 | Jamboree 3 | detall/concert-sara-lilu-alesander-pena_99400784692.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Lucia Fumero" | 09/12/2026 | Jamboree 3 | detall/concert-lucia-fumero_99400784695.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Carolina Alabau i Èlia Bastida" | 10/12/2026 | Jamboree 3 | detall/concert-carolina-alabau-i-elia-bastida_99400786571.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Marco Mezquida" | 10/12/2026 | L'Auditori de Barcelona - Sala 2 Oriol Martorell | detall/concert-marco-mezquida_99400783144.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Así canta Jerez en Navidad" | 12/12/2026 | Palau de la Música Catalana | detall/concert-asi-canta-jerez-en-navidad_99400713021.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Thana Alexa & Friends" | 15/12/2026 | Jamboree 3 | detall/concert-thana-alexa-friends_99400786573.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Sant Andreu Jazz Band" | 23/12/2026 | Palau de la Música Catalana | detall/concert-sant-andreu-jazz-band_99400781061.html
+ - 59è Festival Internacional de Jazz de Barcelona: Concert "Orpheus Chamber Orchestra amb Branford Marsalis" | 08/03/2027 | Palau de la Música Catalana | detall/concert-orpheus-chamber-orchestra-amb-branford-marsalis_99400783146.html
+ - 58è Festival Internacional de Jazz de Barcelona | Del 18/04/2026 al 23/12/2026 | Diverses sales i espais de la ciutat | detall/58e-festival-internacional-de-jazz-de-barcelona_99400720825.html
+ - Concerts Octubre 2026 al Harlem Jazz Club | Del 01/10/2026 al 31/10/2026 | Harlem Jazz Club | detall/concerts-octubre-2026-al-harlem-jazz-club_99400777488.html
+ - 58è Festival Internacional de Jazz de Barcelona: Concert "Ethan Iverson & Liceu Big Band" | 01/12/2026 | Fundació Conservatori del Liceu | detall/concert-ethan-iverson-liceu-big-band_99400783142.html
+  tipus: [('0061901019', 'Música (53)')]
