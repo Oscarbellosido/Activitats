@@ -1,16 +1,22 @@
 #!/bin/bash
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
-for q in "amics+de+les+arts" "tete+bebo" "park+g%C3%BCell" "festival+de+jazz"; do
-  curl -sSL -m 90 -A "$UA" "https://guia.barcelona.cat/ca/llistat?pg=search&tipuscerca=agenda&cerca=$q&tr=619&c=00619*&sort=proxdate,asc&nr=100" -o /tmp/q
-  echo "=== $q"
-  python3 - <<'PY'
-import re,html
+B1="https://guia.barcelona.cat/ca/llistat?pg=search&tipuscerca=agenda&cerca=*:*&tr=619&c=00619*&sort=proxdate,asc&d=mes&nr=500"
+B2="https://guia.barcelona.cat/ca/llistat?pg=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&c=00619*;00619*&tr=619&d=mes&nr=500"
+B3="https://guia.barcelona.cat/ca/llistat?pg=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&c=00619*;00619*&tr=619&nr=500"
+m() { curl -sSL -m 120 -A "$UA" "$1" -o /tmp/q; python3 - "$2" <<'PY'
+import re,sys
 h=open('/tmp/q',encoding='utf-8',errors='replace').read()
-for b in h.split('<div class="item"')[1:]:
-    t=re.search(r'<h3><a href="([^"]+)">(.*?)</a>',b,re.S); q=re.search(r'Quan:</dt>\s*<dd>(.*?)</dd>',b,re.S); o=re.search(r'On:</dt>\s*<dd>(.*?)</dd>',b,re.S)
-    if t: print(' -', html.unescape(re.sub('<[^>]+>','',t.group(2))).strip(), '|', re.sub('<[^>]+>','',q.group(1)).strip() if q else '', '|', re.sub('<[^>]+>','',o.group(1)).strip()[:60] if o else '', '|', t.group(1))
-codes=re.findall(r'code0=(\d+)"[^>]*>([^<]*\(\d+\))',h)
-print('  tipus:', codes[:12])
+its=re.findall(r'<h3><a href="detall/[^"]+_(\d+)\.html"',h)
+fac=dict((k,int(v)) for k,v in re.findall(r'(districtstr=[^"&]+|code0=\d+)"[^>]*>[^<]*\((\d+)\)',h))
+print(f"{sys.argv[1]:45s} items={len(its)} primers={its[:3]} Musica={fac.get('code0=0061901019')} Gracia={fac.get('districtstr=Gràcia')} CV={fac.get('districtstr=Ciutat+Vella')}")
 PY
-  sleep 11
-done
+sleep 11; }
+m "$B1&code0=0061901019" "B1 musica"
+m "$B1&code0=0061901019&districtstr=Gr%C3%A0cia" "B1 musica+gracia (codificat)"
+m "$B1&code0=0061901019&districtstr=Gràcia" "B1 musica+gracia (literal)"
+m "$B2&code0=0061901019" "B2 musica"
+m "$B2&code0=0061901019&districtstr=Gr%C3%A0cia" "B2 musica+gracia"
+m "$B2&code0=0061901019&districtstr=Ciutat+Vella" "B2 musica+CV"
+m "$B2&districtstr=Gr%C3%A0cia" "B2 gracia"
+m "$B3" "B3 sense d (tot)"
+m "$B3&code0=0061901019" "B3 musica sense d"
