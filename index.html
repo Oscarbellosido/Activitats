@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#1f4fd8"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="icon" href="icon-192.png"/>
+<title>Activitats a Catalunya</title>
+<meta name="description" content="Concerts, teatre, exposicions i activitats de tot Catalunya, classificades per preu, província i tipus. S'actualitza cada dia a les 6 del matí."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+:root{
+  --paper:#f3f5f8; --card:#ffffff; --ink:#172033; --muted:#5b6578; --line:#dde2ea;
+  --blau:#1f4fd8; --blau-suau:#e5ecfd; --verd:#0c7f57; --verd-suau:#dcf3e9;
+  --groc:#f2b21b; --groc-ink:#5a3d00; --vermell:#c0392b;
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --text:'Atkinson Hyperlegible',system-ui,sans-serif;
+  --r-gran:18px; --r-mitja:12px; --r-petit:999px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1522; --card:#182134; --ink:#eef2f8; --muted:#a3adc0; --line:#2a3550;
+  --blau:#7da2ff; --blau-suau:#1d2b52; --verd:#4fd19e; --verd-suau:#123a2d; --groc:#f5c242; --groc-ink:#2a1d00;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1522; --card:#182134; --ink:#eef2f8; --muted:#a3adc0; --line:#2a3550;
+  --blau:#7da2ff; --blau-suau:#1d2b52; --verd:#4fd19e; --verd-suau:#123a2d; --groc:#f5c242; --groc-ink:#2a1d00;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--text)}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blau);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* Capçalera */
+header{padding:30px 0 8px}
+.cap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+h1{font:800 clamp(2rem,6vw,3.4rem)/1.02 var(--display);letter-spacing:-.03em;margin:0}
+h1 small{display:block;font:500 1rem/1.4 var(--text);letter-spacing:0;color:var(--muted);margin-top:8px}
+.eines{display:flex;gap:8px;align-items:center}
+.boto-icona{border:1px solid var(--line);background:var(--card);border-radius:var(--r-petit);height:40px;min-width:40px;padding:0 14px;cursor:pointer}
+.boto-icona[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Tira de dies: l'element protagonista */
+.dies{display:flex;gap:6px;overflow-x:auto;padding:18px 0 14px;scroll-snap-type:x proximity;scrollbar-width:none}
+.dies::-webkit-scrollbar{display:none}
+.dia{flex:0 0 auto;scroll-snap-align:start;width:76px;border:none;border-radius:var(--r-mitja);background:var(--card);
+  padding:10px 6px 9px;cursor:pointer;text-align:center;box-shadow:inset 0 0 0 1px var(--line);position:relative}
+.dia .nom{font-size:.8rem;color:var(--muted)}
+.dia .num{display:block;font:800 2.1rem/1 var(--display);letter-spacing:-.04em;margin:2px 0 4px}
+.dia .q{font-size:.75rem;color:var(--muted)}
+.dia.cap-setmana .num{color:var(--blau)}
+.dia[aria-pressed="true"]{background:var(--blau);box-shadow:none;color:#fff}
+.dia[aria-pressed="true"] .nom,.dia[aria-pressed="true"] .q,.dia[aria-pressed="true"] .num{color:#fff}
+.dia .mes{position:absolute;top:-9px;left:8px;font-size:.7rem;background:var(--ink);color:var(--paper);padding:0 6px;border-radius:6px}
+
+/* Filtres */
+.filtres{display:grid;gap:10px;padding-bottom:6px}
+.fila{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fila.lliscant{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.fila.lliscant::-webkit-scrollbar{display:none}
+.xip{flex:0 0 auto;border:1px solid var(--line);background:var(--card);border-radius:var(--r-petit);padding:6px 13px;cursor:pointer;font-size:.92rem;white-space:nowrap}
+.xip .n{color:var(--muted);font-size:.8rem;margin-left:4px}
+.xip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.xip[aria-pressed="true"] .n{color:inherit;opacity:.7}
+.xip.gratis[aria-pressed="true"]{background:var(--verd);border-color:var(--verd);color:#fff}
+.xip.noves[aria-pressed="true"]{background:var(--groc);border-color:var(--groc);color:var(--groc-ink)}
+.cerca{flex:1 1 240px;min-width:0;height:42px;border:1px solid var(--line);background:var(--card);border-radius:var(--r-petit);padding:0 16px}
+select.sel{height:42px;border:1px solid var(--line);background:var(--card);border-radius:var(--r-petit);padding:0 12px;max-width:100%}
+
+.resum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:18px 0 12px}
+.resum h2{font:700 1.35rem/1.2 var(--display);margin:0}
+.resum .net{background:none;border:none;color:var(--blau);cursor:pointer;text-decoration:underline;padding:0}
+
+/* Targetes */
+.graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;padding-bottom:20px}
+.targeta{background:var(--card);border-radius:var(--r-gran);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;border:1px solid var(--line);text-align:left;padding:0}
+.targeta:hover .titol{text-decoration:underline;text-decoration-thickness:2px}
+.foto{aspect-ratio:16/9;background:var(--blau-suau);position:relative;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto .sense{position:absolute;inset:0;display:grid;place-items:center;font:800 2.6rem var(--display);color:var(--blau);opacity:.35}
+.cos{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.quan{font:700 .9rem var(--text);color:var(--blau)}
+.titol{font:700 1.12rem/1.22 var(--display);margin:0}
+.on{font-size:.9rem;color:var(--muted)}
+.peu{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px;align-items:center}
+.etq{font-size:.78rem;padding:2px 9px;border-radius:var(--r-petit);background:var(--paper);color:var(--muted)}
+.preu{font-weight:700;font-size:.85rem;padding:2px 10px;border-radius:var(--r-petit);background:var(--blau-suau);color:var(--blau)}
+.preu.gratis{background:var(--verd-suau);color:var(--verd)}
+.nova{position:absolute;top:10px;left:10px;background:var(--groc);color:var(--groc-ink);font-weight:700;font-size:.78rem;padding:3px 10px;border-radius:var(--r-petit)}
+.desa{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.92);cursor:pointer;font-size:1.1rem;line-height:1;color:#172033}
+.desa[aria-pressed="true"]{color:var(--vermell)}
+.mes-btn{display:block;margin:4px auto 40px;border:1px solid var(--ink);background:none;border-radius:var(--r-petit);padding:10px 22px;cursor:pointer;font-weight:700}
+.buit{padding:50px 16px;text-align:center;color:var(--muted)}
+.buit strong{display:block;color:var(--ink);font:700 1.3rem var(--display);margin-bottom:6px}
+
+#mapa{height:min(70vh,640px);border-radius:var(--r-gran);margin-bottom:30px;border:1px solid var(--line);z-index:0}
+.leaflet-popup-content{font-family:var(--text)}
+.leaflet-popup-content b{font-family:var(--display)}
+
+/* Fitxa */
+dialog{border:none;padding:0;border-radius:var(--r-gran);max-width:640px;width:calc(100% - 24px);background:var(--card);color:var(--ink);max-height:calc(100dvh - 24px)}
+dialog::backdrop{background:rgba(10,15,30,.6)}
+dialog .foto{aspect-ratio:16/8}
+dialog .cos{padding:18px 20px 22px;gap:10px}
+dialog h3{font:800 1.6rem/1.1 var(--display);margin:0;letter-spacing:-.02em}
+dialog .sub{color:var(--muted);margin:0}
+dialog .desc{margin:0;max-width:68ch}
+dl.dades{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:4px 0;font-size:.95rem}
+dl.dades dt{color:var(--muted)}
+dl.dades dd{margin:0}
+.accions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.accions a,.accions button{border-radius:var(--r-petit);padding:9px 16px;text-decoration:none;font-weight:700;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.accions a.principal{background:var(--blau);border-color:var(--blau);color:#fff}
+.tanca{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#172033;font-size:1.3rem;cursor:pointer;z-index:2}
+
+footer{color:var(--muted);font-size:.85rem;padding:10px 0 40px;border-top:1px solid var(--line)}
+footer a{color:inherit}
+.carregant{padding:60px 0;text-align:center;color:var(--muted)}
+@media (max-width:520px){ .dia{width:66px} .dia .num{font-size:1.8rem} .graella{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="cap">
+    <h1>Activitats a Catalunya<small id="estat">Carregant l'agenda…</small></h1>
+    <div class="eines">
+      <button class="boto-icona" id="v-llista" aria-pressed="true">Llista</button>
+      <button class="boto-icona" id="v-mapa" aria-pressed="false">Mapa</button>
+      <button class="boto-icona" id="v-desades" aria-pressed="false" title="Activitats desades">♥ <span id="n-desades">0</span></button>
+      <button class="boto-icona" id="tema" title="Canvia el tema clar/fosc" aria-label="Canvia el tema clar/fosc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-3px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+  <nav class="dies" id="dies" aria-label="Tria un dia"></nav>
+</header>
+
+<main class="wrap">
+  <section class="filtres" aria-label="Filtres">
+    <div class="fila">
+      <input class="cerca" id="cerca" type="search" placeholder="Cerca per nom, lloc o artista" aria-label="Cerca"/>
+      <button class="xip" id="prop" aria-pressed="false">Prop meu</button>
+    </div>
+    <div class="fila lliscant" id="f-quan" aria-label="Quan"></div>
+    <div class="fila lliscant" id="f-preu" aria-label="Preu"></div>
+    <div class="fila lliscant" id="f-prov" aria-label="Província"></div>
+    <div class="fila">
+      <select class="sel" id="f-comarca" aria-label="Comarca"></select>
+    </div>
+    <div class="fila lliscant" id="f-cat" aria-label="Tipus d'activitat"></div>
+  </section>
+
+  <div class="resum">
+    <h2 id="titol-resultats">—</h2>
+    <button class="net" id="neteja" hidden>Treu tots els filtres</button>
+  </div>
+
+  <div id="mapa" hidden></div>
+  <div class="graella" id="graella"><div class="carregant">Carregant l'agenda…</div></div>
+  <button class="mes-btn" id="mes" hidden>Mostra'n més</button>
+</main>
+
+<footer class="wrap">
+  <p>Dades: <a href="https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f" target="_blank" rel="noopener">Agenda Cultural de Catalunya</a> (dades obertes de la Generalitat). S'actualitza cada dia a les 6 del matí. Confirma horaris i preus amb l'organitzador abans d'anar-hi.</p>
+</footer>
+
+<dialog id="fitxa"></dialog>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const guarda = (k, v) => { try { localStorage.setItem('act_' + k, JSON.stringify(v)); } catch {} };
+const llegeix = (k, d) => { try { const v = localStorage.getItem('act_' + k); return v == null ? d : JSON.parse(v); } catch { return d; } };
+
+const DIES_SETM = ['dg.', 'dl.', 'dt.', 'dc.', 'dj.', 'dv.', 'ds.'];
+const MESOS = ['gen.', 'febr.', 'març', 'abr.', 'maig', 'juny', 'jul.', 'ag.', 'set.', 'oct.', 'nov.', 'des.'];
+const MESOS_LLARGS = ['de gener','de febrer','de març',"d'abril",'de maig','de juny','de juliol',"d'agost",'de setembre',"d'octubre",'de novembre','de desembre'];
+const PAS = 48;
+
+const QUAN = [['tot', 'Qualsevol dia'], ['avui', 'Avui'], ['dema', 'Demà'], ['cap', 'Aquest cap de setmana'], ['set', 'Pròxims 7 dies'], ['mes', 'Pròxims 30 dies']];
+const PREUS = [['tot', 'Tots els preus'], ['gratis', 'Gratuïtes'], ['10', 'Fins a 10 €'], ['25', 'De 10 a 25 €'], ['mes25', 'Més de 25 €'], ['nd', 'Preu sense indicar']];
+const PROVS = ['Barcelona', 'Girona', 'Lleida', 'Tarragona'];
+
+let DADES = null, LLISTA = [], mostrats = PAS, mapa = null, capaMapa = null, posicio = null;
+const S = Object.assign({ quan: 'tot', dia: null, preu: 'tot', prov: null, comarca: '', cat: null, noves: false, cerca: '', vista: 'llista' },
+  llegeix('filtres', {}), { cerca: '', dia: null });
+let desades = new Set(llegeix('desades', []));
+
+// ── Dates ──
+const avuiISO = () => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); };
+const suma = (iso, n) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+const dt = iso => new Date(iso + 'T12:00:00');
+function rangQuan() {
+  const a = avuiISO();
+  if (S.dia) return [S.dia, S.dia];
+  switch (S.quan) {
+    case 'avui': return [a, a];
+    case 'dema': return [suma(a, 1), suma(a, 1)];
+    case 'cap': { const w = dt(a).getDay(); // divendres compta com a inici del cap de setmana
+      if (w === 0) return [a, a]; if (w === 6) return [a, suma(a, 1)]; if (w === 5) return [a, suma(a, 2)];
+      return [suma(a, 6 - w), suma(a, 7 - w)]; }
+    case 'set': return [a, suma(a, 6)];
+    case 'mes': return [a, suma(a, 29)];
+    default: return [a, '9999-12-31'];
+  }
+}
+function textData(a) {
+  const i = dt(a.inici), f = dt(a.fi), avui = avuiISO();
+  const curt = d => `${DIES_SETM[d.getDay()]} ${d.getDate()} ${MESOS[d.getMonth()]}`;
+  if (a.inici === a.fi) return a.inici === avui ? 'Avui' : a.inici === suma(avui, 1) ? 'Demà' : curt(i);
+  if (a.inici <= avui) return `Fins al ${f.getDate()} ${MESOS_LLARGS[f.getMonth()]}`;
+  return `Del ${i.getDate()} ${MESOS[i.getMonth()]} al ${f.getDate()} ${MESOS[f.getMonth()]}`;
+}
+const textPreu = a => a.gratuit ? 'Gratuïta' : a.preuMin == null ? 'Preu a consultar'
+  : a.preuMin === a.preuMax ? `${fmtEur(a.preuMin)}` : `${fmtEur(a.preuMin)} – ${fmtEur(a.preuMax)}`;
+const fmtEur = n => (Number.isInteger(n) ? n : n.toFixed(2).replace('.', ',')) + ' €';
+const distKm = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b.lat - a.lat) * r, dLo = (b.lon - a.lon) * r;
+  const x = Math.sin(dLa / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); };
+
+// ── Filtres ──
+function passaPreu(a, p = S.preu) {
+  switch (p) {
+    case 'gratis': return a.gratuit;
+    case '10': return !a.gratuit && a.preuMin != null && a.preuMin <= 10;
+    case '25': return !a.gratuit && a.preuMin != null && a.preuMin > 10 && a.preuMin <= 25;
+    case 'mes25': return !a.gratuit && a.preuMin != null && a.preuMin > 25;
+    case 'nd': return !a.gratuit && a.preuMin == null;
+    default: return true;
+  }
+}
+function filtra(excepte) {
+  const [d0, d1] = rangQuan();
+  const q = S.cerca.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  return DADES.activitats.filter(a => {
+    if (S.vista === 'desades') return desades.has(a.id);
+    if (excepte !== 'quan' && !(a.inici <= d1 && a.fi >= d0)) return false;
+    if (excepte !== 'preu' && !passaPreu(a)) return false;
+    if (excepte !== 'prov' && S.prov && a.provincia !== S.prov) return false;
+    if (excepte !== 'comarca' && excepte !== 'prov' && S.comarca && a.comarca !== S.comarca) return false;
+    if (excepte !== 'cat' && S.cat && !a.categories.includes(S.cat)) return false;
+    if (excepte !== 'noves' && S.noves && !esNova(a)) return false;
+    if (q && !a._cerca.includes(q)) return false;
+    return true;
+  });
+}
+const esNova = a => DADES && a.vista === DADES.dia && DADES.dia !== DADES.primeraCarrega;
+
+function ordena(llista) {
+  const [d0] = rangQuan();
+  if (posicio) return llista.sort((x, y) => (x._dist ?? 1e9) - (y._dist ?? 1e9));
+  // Primer el que passa abans; a igual data, primer els actes curts (concerts, funcions) i després les exposicions llargues
+  return llista.sort((x, y) => {
+    const ix = x.inici > d0 ? x.inici : d0, iy = y.inici > d0 ? y.inici : d0;
+    return ix.localeCompare(iy) || (x._durada - y._durada) || x.titol.localeCompare(y.titol, 'ca');
+  });
+}
+
+// ── Pintar ──
+function xip(cont, valor, etiqueta, n, actiu, extra = '') {
+  return `<button class="xip ${extra}" data-v="${esc(valor)}" aria-pressed="${actiu}">${esc(etiqueta)}${n != null ? `<span class="n">${n}</span>` : ''}</button>`;
+}
+function pintaDies() {
+  const a = avuiISO(); const base = filtra('quan'); let h = '';
+  for (let i = 0; i < 21; i++) {
+    const d = suma(a, i), D = dt(d), w = D.getDay();
+    const n = base.filter(x => x.inici <= d && x.fi >= d).length;
+    const nouMes = i === 0 || D.getDate() === 1;
+    h += `<button class="dia ${w === 0 || w === 6 ? 'cap-setmana' : ''}" data-d="${d}" aria-pressed="${S.dia === d}" aria-label="${D.getDate()} ${MESOS_LLARGS[D.getMonth()]}, ${n} activitats">
+      ${nouMes ? `<span class="mes">${MESOS[D.getMonth()]}</span>` : ''}
+      <span class="nom">${i === 0 ? 'avui' : i === 1 ? 'demà' : DIES_SETM[w]}</span><span class="num">${D.getDate()}</span><span class="q">${n}</span></button>`;
+  }
+  $('#dies').innerHTML = h;
+}
+function pintaFiltres() {
+  const amb = (clau, fn) => { const b = filtra(clau); return v => b.filter(a => fn(a, v)).length; };
+  $('#f-quan').innerHTML = QUAN.map(([v, t]) => xip('quan', v, t, null, !S.dia && S.quan === v)).join('');
+  const cPreu = amb('preu', (a, v) => passaPreu(a, v));
+  $('#f-preu').innerHTML = PREUS.map(([v, t]) => xip('preu', v, t, v === 'tot' ? null : cPreu(v), S.preu === v, v === 'gratis' ? 'gratis' : '')).join('')
+    + xip('noves', 'noves', 'Noves d\'avui', filtra('noves').filter(esNova).length, S.noves, 'noves');
+  const cProv = amb('prov', (a, v) => a.provincia === v);
+  $('#f-prov').innerHTML = xip('prov', '', 'Tot Catalunya', null, !S.prov) + PROVS.map(p => xip('prov', p, p, cProv(p), S.prov === p)).join('');
+  const bCom = filtra('comarca'); const com = {};
+  bCom.forEach(a => { if (a.comarca) com[a.comarca] = (com[a.comarca] || 0) + 1; });
+  const llistaCom = Object.keys(com).sort((x, y) => x.localeCompare(y, 'ca'));
+  if (S.comarca && !com[S.comarca]) llistaCom.unshift(S.comarca);
+  $('#f-comarca').innerHTML = `<option value="">Totes les comarques${S.prov ? ` de ${S.prov}` : ''}</option>` +
+    llistaCom.map(c => `<option value="${esc(c)}" ${S.comarca === c ? 'selected' : ''}>${esc(c)} (${com[c] || 0})</option>`).join('');
+  const bCat = filtra('cat'); const cats = {};
+  bCat.forEach(a => a.categories.forEach(c => cats[c] = (cats[c] || 0) + 1));
+  $('#f-cat').innerHTML = xip('cat', '', 'Tots els tipus', null, !S.cat) +
+    Object.entries(cats).sort((x, y) => y[1] - x[1]).map(([c, n]) => xip('cat', c, c, n, S.cat === c)).join('');
+}
+function targeta(a) {
+  const lloc = [a.espai, a.municipi].filter(Boolean).join(', ') || a.provincia;
+  return `<article class="targeta" data-id="${esc(a.id)}" tabindex="0" role="button" aria-label="${esc(a.titol)}">
+    <div class="foto">${a.img ? `<img loading="lazy" src="${esc(a.img)}" alt="" onerror="this.remove()">` : ''}<span class="sense" aria-hidden="true">${esc((a.categories[0] || 'A')[0])}</span>
+      ${a.img ? '' : ''}${esNova(a) ? '<span class="nova">Nova</span>' : ''}
+      <button class="desa" data-desa="${esc(a.id)}" aria-pressed="${desades.has(a.id)}" aria-label="Desa l'activitat">${desades.has(a.id) ? '♥' : '♡'}</button></div>
+    <div class="cos">
+      <span class="quan">${esc(textData(a))}${a._dist != null ? ` <span class="on">a ${a._dist < 10 ? a._dist.toFixed(1).replace('.', ',') : Math.round(a._dist)} km</span>` : ''}</span>
+      <h3 class="titol">${esc(a.titol)}</h3>
+      <span class="on">${esc(lloc)}</span>
+      <div class="peu"><span class="preu ${a.gratuit ? 'gratis' : ''}">${esc(textPreu(a))}</span>${a.categories.slice(0, 2).map(c => `<span class="etq">${esc(c)}</span>`).join('')}</div>
+    </div></article>`;
+}
+function pinta(reinicia = true) {
+  if (reinicia) mostrats = PAS;
+  guarda('filtres', { quan: S.quan, preu: S.preu, prov: S.prov, comarca: S.comarca, cat: S.cat, noves: S.noves });
+  if (posicio) DADES.activitats.forEach(a => a._dist = a.lat != null ? distKm(posicio, a) : null);
+  LLISTA = ordena(filtra());
+  pintaDies(); pintaFiltres();
+  $('#n-desades').textContent = desades.size;
+  ['llista', 'mapa', 'desades'].forEach(v => $('#v-' + v).setAttribute('aria-pressed', S.vista === v));
+  $('#prop').setAttribute('aria-pressed', !!posicio);
+
+  const n = LLISTA.length;
+  const quin = S.dia ? `el ${dt(S.dia).getDate()} ${MESOS_LLARGS[dt(S.dia).getMonth()]}` : (QUAN.find(q => q[0] === S.quan) || [])[1]?.toLowerCase();
+  $('#titol-resultats').textContent = S.vista === 'desades' ? `${n} ${n === 1 ? 'activitat desada' : 'activitats desades'}`
+    : `${n.toLocaleString('ca')} ${n === 1 ? 'activitat' : 'activitats'}${S.quan !== 'tot' || S.dia ? ', ' + quin : ''}`;
+  const hiHaFiltres = S.dia || S.quan !== 'tot' || S.preu !== 'tot' || S.prov || S.comarca || S.cat || S.noves || S.cerca;
+  $('#neteja').hidden = !hiHaFiltres || S.vista === 'desades';
+
+  const veureMapa = S.vista === 'mapa';
+  $('#mapa').hidden = !veureMapa; $('#graella').hidden = veureMapa;
+  if (veureMapa) { pintaMapa(); $('#mes').hidden = true; return; }
+  if (!n) {
+    $('#graella').innerHTML = S.vista === 'desades'
+      ? `<div class="buit"><strong>Encara no has desat cap activitat</strong>Toca el cor d'una activitat per guardar-la aquí.</div>`
+      : `<div class="buit"><strong>Cap activitat amb aquests filtres</strong>Prova un altre dia o treu algun filtre.</div>`;
+    $('#mes').hidden = true; return;
+  }
+  $('#graella').innerHTML = LLISTA.slice(0, mostrats).map(targeta).join('');
+  $('#mes').hidden = n <= mostrats;
+  $('#mes').textContent = `Mostra'n més (${(n - mostrats).toLocaleString('ca')} restants)`;
+}
+function pintaMapa() {
+  if (!window.L) { $('#mapa').innerHTML = '<div class="buit">No s\'ha pogut carregar el mapa.</div>'; return; }
+  if (!mapa) {
+    mapa = L.map('mapa').setView([41.7, 1.8], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(mapa);
+  }
+  if (capaMapa) capaMapa.remove();
+  capaMapa = L.layerGroup().addTo(mapa);
+  const amb = LLISTA.filter(a => a.lat != null).slice(0, 1500);
+  amb.forEach(a => {
+    const color = a.gratuit ? '#0c7f57' : '#1f4fd8';
+    L.circleMarker([a.lat, a.lon], { radius: 7, color: '#fff', weight: 1.5, fillColor: color, fillOpacity: .9 })
+      .bindPopup(`<b>${esc(a.titol)}</b><br>${esc(textData(a))}<br>${esc(a.municipi || '')} · ${esc(textPreu(a))}<br><a href="#" data-obre="${esc(a.id)}">Veure la fitxa</a>`)
+      .addTo(capaMapa);
+  });
+  setTimeout(() => { mapa.invalidateSize(); if (amb.length) mapa.fitBounds(amb.map(a => [a.lat, a.lon]), { padding: [30, 30], maxZoom: 13 }); }, 50);
+}
+function obreFitxa(id) {
+  const a = DADES.activitats.find(x => x.id === id); if (!a) return;
+  const lloc = [a.espai, a.adreca, a.municipi].filter(Boolean).join(', ');
+  const mapaUrl = a.lat != null ? `https://www.google.com/maps/search/?api=1&query=${a.lat},${a.lon}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lloc + ', Catalunya')}`;
+  const cerca = `https://www.google.com/search?q=${encodeURIComponent(a.titol + ' ' + (a.municipi || ''))}`;
+  $('#fitxa').innerHTML = `<button class="tanca" aria-label="Tanca" onclick="this.closest('dialog').close()">×</button>
+    ${a.img ? `<div class="foto"><img src="${esc(a.img)}" alt="" onerror="this.parentNode.remove()"></div>` : ''}
+    <div class="cos">
+      <span class="quan">${esc(textData(a))}</span>
+      <h3>${esc(a.titol)}</h3>${a.subtitol ? `<p class="sub">${esc(a.subtitol)}</p>` : ''}
+      <div class="peu"><span class="preu ${a.gratuit ? 'gratis' : ''}">${esc(textPreu(a))}</span>${esNova(a) ? '<span class="etq">Nova d\'avui</span>' : ''}${a.categories.map(c => `<span class="etq">${esc(c)}</span>`).join('')}</div>
+      ${a.desc ? `<p class="desc">${esc(a.desc)}</p>` : ''}
+      <dl class="dades">
+        ${a.horari ? `<dt>Horari</dt><dd>${esc(a.horari)}</dd>` : ''}
+        ${a.preuText && !a.gratuit ? `<dt>Entrades</dt><dd>${esc(a.preuText)}</dd>` : ''}
+        ${lloc ? `<dt>Lloc</dt><dd>${esc(lloc)}</dd>` : ''}
+        <dt>Zona</dt><dd>${esc([a.comarca, a.provincia].filter(Boolean).join(', '))}</dd>
+        ${a.virtual ? `<dt>Modalitat</dt><dd>${esc(a.virtual)}</dd>` : ''}
+      </dl>
+      <div class="accions">
+        ${a.entradesUrl ? `<a class="principal" href="${esc(a.entradesUrl)}" target="_blank" rel="noopener">Compra entrades</a>` : ''}
+        ${a.url ? `<a class="${a.entradesUrl ? '' : 'principal'}" href="${esc(a.url)}" target="_blank" rel="noopener">Web de l'activitat</a>` : `<a href="${cerca}" target="_blank" rel="noopener">Busca'n més informació</a>`}
+        <a href="${mapaUrl}" target="_blank" rel="noopener">Com arribar-hi</a>
+        <button data-desa="${esc(a.id)}">${desades.has(a.id) ? 'Treu de desades' : 'Desa'}</button>
+      </div>
+    </div>`;
+  if (!$('#fitxa').open) $('#fitxa').showModal();
+}
+function canviaDesada(id) {
+  desades.has(id) ? desades.delete(id) : desades.add(id);
+  guarda('desades', [...desades]);
+}
+
+// ── Esdeveniments ──
+document.addEventListener('click', e => {
+  const desa = e.target.closest('[data-desa]');
+  if (desa) { e.stopPropagation(); canviaDesada(desa.dataset.desa); pinta(false); if ($('#fitxa').open) obreFitxa(desa.dataset.desa); return; }
+  const obre = e.target.closest('[data-obre]'); if (obre) { e.preventDefault(); obreFitxa(obre.dataset.obre); return; }
+  const t = e.target.closest('.targeta'); if (t) { obreFitxa(t.dataset.id); return; }
+  const dia = e.target.closest('.dia'); if (dia) { S.dia = S.dia === dia.dataset.d ? null : dia.dataset.d; if (S.vista === 'desades') S.vista = 'llista'; pinta(); return; }
+  const x = e.target.closest('.xip'); if (!x || x.id === 'prop') return;
+  const grup = x.parentNode.id, v = x.dataset.v;
+  if (grup === 'f-quan') { S.quan = v; S.dia = null; }
+  else if (grup === 'f-preu') { if (v === 'noves') S.noves = !S.noves; else S.preu = v; }
+  else if (grup === 'f-prov') { S.prov = v || null; S.comarca = ''; }
+  else if (grup === 'f-cat') { S.cat = S.cat === v ? null : (v || null); }
+  if (S.vista === 'desades') S.vista = 'llista';
+  pinta();
+});
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList?.contains('targeta')) { e.preventDefault(); obreFitxa(e.target.dataset.id); } });
+$('#fitxa').addEventListener('click', e => { if (e.target === $('#fitxa')) $('#fitxa').close(); });
+$('#f-comarca').addEventListener('change', e => { S.comarca = e.target.value; pinta(); });
+let tCerca; $('#cerca').addEventListener('input', e => { clearTimeout(tCerca); tCerca = setTimeout(() => { S.cerca = e.target.value; pinta(); }, 180); });
+$('#mes').addEventListener('click', () => { mostrats += PAS; pinta(false); });
+$('#neteja').addEventListener('click', () => { Object.assign(S, { quan: 'tot', dia: null, preu: 'tot', prov: null, comarca: '', cat: null, noves: false, cerca: '' }); $('#cerca').value = ''; pinta(); });
+['llista', 'mapa', 'desades'].forEach(v => $('#v-' + v).addEventListener('click', () => { S.vista = S.vista === v && v !== 'llista' ? 'llista' : v; pinta(); }));
+$('#prop').addEventListener('click', () => {
+  if (posicio) { posicio = null; DADES.activitats.forEach(a => delete a._dist); pinta(); return; }
+  if (!navigator.geolocation) return;
+  $('#prop').textContent = 'Buscant on ets…';
+  navigator.geolocation.getCurrentPosition(p => { posicio = { lat: p.coords.latitude, lon: p.coords.longitude }; $('#prop').textContent = 'Prop meu'; pinta(); },
+    () => { $('#prop').textContent = 'Prop meu (sense permís)'; }, { timeout: 10000, maximumAge: 600000 });
+});
+const temaDesat = llegeix('tema', null); if (temaDesat) document.documentElement.dataset.theme = temaDesat;
+$('#tema').addEventListener('click', () => {
+  const fosc = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = fosc ? 'light' : 'dark'; guarda('tema', document.documentElement.dataset.theme);
+});
+
+// ── Càrrega ──
+async function carrega() {
+  try {
+    const r = await fetch('data/activitats.json?v=' + Date.now(), { cache: 'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    DADES = await r.json();
+  } catch (e) {
+    $('#estat').textContent = "No s'ha pogut carregar l'agenda.";
+    $('#graella').innerHTML = `<div class="buit"><strong>No s'ha pogut carregar l'agenda</strong>Comprova la connexió i torna a carregar la pàgina.</div>`;
+    return;
+  }
+  const avui = avuiISO();
+  DADES.activitats = DADES.activitats.filter(a => a.fi >= avui);
+  DADES.activitats.forEach(a => {
+    a._durada = (dt(a.fi) - dt(a.inici)) / 864e5;
+    a._cerca = [a.titol, a.subtitol, a.espai, a.municipi, a.comarca, a.categories.join(' '), a.desc].join(' ').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  });
+  const act = new Date(DADES.actualitzat);
+  $('#estat').textContent = `${DADES.activitats.length.toLocaleString('ca')} activitats, actualitzades el ${act.getDate()} ${MESOS_LLARGS[act.getMonth()]} a les ${act.toLocaleTimeString('ca', { hour: '2-digit', minute: '2-digit' })}`
+    + (DADES.noves ? `. Avui n'hi ha ${DADES.noves} de noves` : '');
+  pinta();
+}
+carrega();
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>

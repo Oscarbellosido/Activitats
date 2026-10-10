@@ -1,0 +1,41 @@
+name: Actualitza activitats
+
+# Cada dia a les 6:00 de Catalunya. GitHub només admet hores UTC i Catalunya canvia d'hora a l'estiu i a l'hivern,
+# per això s'executa a les 4:00 i a les 5:00 UTC: l'script només actualitza quan ja són les 6 a Catalunya
+# i avui encara no s'ha fet (l'altra execució no fa res).
+on:
+  schedule:
+    - cron: '0 4 * * *'
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      forca:
+        description: "Actualitza encara que avui ja s'hagi fet"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualitza
+  cancel-in-progress: false
+
+jobs:
+  actualitza:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Baixa i classifica les activitats
+        run: node scripts/actualitza.mjs ${{ (github.event_name == 'workflow_dispatch' && inputs.forca) && '--forca' || '' }}
+      - name: Desa els canvis
+        run: |
+          git add data/activitats.json
+          if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
+          git config user.name "activitats-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Activitats $(TZ=Europe/Madrid date +%Y-%m-%d)"
+          git push
