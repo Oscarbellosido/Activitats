@@ -25,7 +25,7 @@ const MAPA = [
 ];
 
 function categories(e, perDefecte) {
-  const textos = [...(e.tipus || []), ...(e.public || []), ...(e.tags || [])].map(String);
+  const textos = [e.titol || '', ...(e.tipus || []), ...(e.public || []), ...(e.tags || [])].map(String);
   const cats = new Set();
   for (const t of textos) for (const [re, c] of MAPA) if (re.test(t)) cats.add(c);
   if (!cats.size) cats.add(perDefecte);

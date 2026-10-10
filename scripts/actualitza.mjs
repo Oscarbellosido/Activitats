@@ -85,13 +85,13 @@ async function main() {
     }
   }
 
-  // 3. Les que no tenen província: la de l'activitat amb ubicació més propera (~20 km)
-  const ambLloc = [...perId.values()].filter(a => PROVINCIES[a.provincia.toLowerCase()] && a.lat != null);
+  // 3. Les que no tenen província o comarca: les de l'activitat amb ubicació completa més propera (~15 km)
+  const ambLloc = [...perId.values()].filter(a => PROVINCIES[a.provincia.toLowerCase()] && a.comarca && a.lat != null);
   for (const a of perId.values()) {
-    if (PROVINCIES[a.provincia.toLowerCase()] || a.lat == null || !ambLloc.length) continue;
+    if ((PROVINCIES[a.provincia.toLowerCase()] && a.comarca) || a.lat == null || !ambLloc.length) continue;
     let millor = null, dMin = Infinity;
     for (const b of ambLloc) { const d = (a.lat - b.lat) ** 2 + (a.lon - b.lon) ** 2; if (d < dMin) { dMin = d; millor = b; } }
-    if (dMin < 0.04) { a.provincia = millor.provincia; a.comarca = a.comarca || millor.comarca; }
+    if (dMin < 0.02) { if (!PROVINCIES[a.provincia.toLowerCase()]) a.provincia = millor.provincia; a.comarca = a.comarca || millor.comarca; }
   }
 
   const activitats = [...perId.values()].sort((x, y) => x.inici.localeCompare(y.inici) || x.titol.localeCompare(y.titol, 'ca'));
