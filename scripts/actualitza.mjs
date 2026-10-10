@@ -14,9 +14,10 @@ import { fileURLToPath } from 'node:url';
 import { sumaDies, clauDuplicat, PROVINCIES, DIES_ENDAVANT } from './comu.mjs';
 import * as generalitat from './fonts/generalitat.mjs';
 import * as diba from './fonts/diba.mjs';
+import * as guiabcn from './fonts/guiabcn.mjs';
 
 // L'ordre importa: si una activitat surt a dues fonts, es queda la de la primera
-const FONTS = [generalitat, diba];
+const FONTS = [generalitat, diba, guiabcn];
 
 const ARREL = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SORTIDA = join(ARREL, 'data', 'activitats.json');

@@ -97,7 +97,8 @@ select.sel{height:42px;border:1px solid var(--line);background:var(--card);borde
 .buit{padding:50px 16px;text-align:center;color:var(--muted)}
 .buit strong{display:block;color:var(--ink);font:700 1.3rem var(--display);margin-bottom:6px}
 
-#mapa{height:min(70vh,640px);border-radius:var(--r-gran);margin-bottom:30px;border:1px solid var(--line);z-index:0}
+#mapa{height:min(70vh,640px);border-radius:var(--r-gran);margin-bottom:10px;border:1px solid var(--line);z-index:0}
+.nota-mapa{color:var(--muted);font-size:.9rem;margin:0 0 30px}
 .leaflet-popup-content{font-family:var(--text)}
 .leaflet-popup-content b{font-family:var(--display)}
 
@@ -159,12 +160,13 @@ footer a{color:inherit}
   </div>
 
   <div id="mapa" hidden></div>
+  <p class="nota-mapa" id="nota-mapa" hidden></p>
   <div class="graella" id="graella"><div class="carregant">Carregant l'agenda…</div></div>
   <button class="mes-btn" id="mes" hidden>Mostra'n més</button>
 </main>
 
 <footer class="wrap">
-  <p>Dades: <a href="https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f" target="_blank" rel="noopener">Agenda Cultural de Catalunya</a> (dades obertes de la Generalitat). S'actualitza cada dia a les 6 del matí. Confirma horaris i preus amb l'organitzador abans d'anar-hi.</p>
+  <p>Dades: <a href="https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f" target="_blank" rel="noopener">Agenda Cultural de Catalunya</a> (Generalitat), <a href="https://dadesobertes.diba.cat/" target="_blank" rel="noopener">Diputació de Barcelona</a> (turisme, biblioteques i museus) i <a href="https://guia.barcelona.cat/" target="_blank" rel="noopener">Guia Barcelona</a> (Ajuntament). S'actualitza cada dia a les 6 del matí. Confirma horaris i preus amb l'organitzador abans d'anar-hi.</p>
 </footer>
 
 <dialog id="fitxa"></dialog>
@@ -182,7 +184,8 @@ const MESOS_LLARGS = ['de gener','de febrer','de març',"d'abril",'de maig','de 
 const PAS = 48;
 
 const QUAN = [['tot', 'Qualsevol dia'], ['avui', 'Avui'], ['dema', 'Demà'], ['cap', 'Aquest cap de setmana'], ['set', 'Pròxims 7 dies'], ['mes', 'Pròxims 30 dies']];
-const PREUS = [['tot', 'Tots els preus'], ['gratis', 'Gratuïtes'], ['10', 'Fins a 10 €'], ['25', 'De 10 a 25 €'], ['mes25', 'Més de 25 €'], ['nd', 'Preu sense indicar']];
+const PREUS = [['tot', 'Tots els preus'], ['gratis', 'Gratuïtes'], ['30', 'Fins a 30 €'], ['60', 'De 30 a 60 €'], ['mes60', 'Més de 60 €'], ['nd', 'Preu sense indicar']];
+const FONTS = { generalitat: 'Agenda Cultural de Catalunya (Generalitat)', diba: 'Diputació de Barcelona', guiabcn: 'Guia Barcelona (Ajuntament)' };
 const PROVS = ['Barcelona', 'Girona', 'Lleida', 'Tarragona'];
 
 let DADES = null, LLISTA = [], mostrats = PAS, mapa = null, capaMapa = null, posicio = null;
@@ -215,7 +218,7 @@ function textData(a) {
   if (a.inici <= avui) return `Fins al ${f.getDate()} ${MESOS_LLARGS[f.getMonth()]}`;
   return `Del ${i.getDate()} ${MESOS[i.getMonth()]} al ${f.getDate()} ${MESOS[f.getMonth()]}`;
 }
-const textPreu = a => a.gratuit ? 'Gratuïta' : a.preuMin == null ? 'Preu a consultar'
+const textPreu = a => a.gratuit ? 'Gratuïta' : a.preuRang ? a.preuText : a.preuMin == null ? 'Preu a consultar'
   : a.preuMin === a.preuMax ? `${fmtEur(a.preuMin)}` : `${fmtEur(a.preuMin)} – ${fmtEur(a.preuMax)}`;
 const fmtEur = n => (Number.isInteger(n) ? n : n.toFixed(2).replace('.', ',')) + ' €';
 const distKm = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b.lat - a.lat) * r, dLo = (b.lon - a.lon) * r;
@@ -225,9 +228,9 @@ const distKm = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b.lat - a.l
 function passaPreu(a, p = S.preu) {
   switch (p) {
     case 'gratis': return a.gratuit;
-    case '10': return !a.gratuit && a.preuMin != null && a.preuMin <= 10;
-    case '25': return !a.gratuit && a.preuMin != null && a.preuMin > 10 && a.preuMin <= 25;
-    case 'mes25': return !a.gratuit && a.preuMin != null && a.preuMin > 25;
+    case '30': return !a.gratuit && a.preuMin != null && a.preuMin < 30;
+    case '60': return !a.gratuit && a.preuMin != null && a.preuMin >= 30 && a.preuMin < 60;
+    case 'mes60': return !a.gratuit && a.preuMin != null && a.preuMin >= 60;
     case 'nd': return !a.gratuit && a.preuMin == null;
     default: return true;
   }
@@ -295,7 +298,7 @@ function pintaFiltres() {
     Object.entries(cats).sort((x, y) => y[1] - x[1]).map(([c, n]) => xip('cat', c, c, n, S.cat === c)).join('');
 }
 function targeta(a) {
-  const lloc = [a.espai, a.municipi].filter(Boolean).join(', ') || a.provincia;
+  const lloc = [a.espai, a.municipi + (a.districte ? ` (${a.districte})` : '')].filter(Boolean).join(', ') || a.provincia;
   return `<article class="targeta" data-id="${esc(a.id)}" tabindex="0" role="button" aria-label="${esc(a.titol)}">
     <div class="foto">${a.img ? `<img loading="lazy" src="${esc(a.img)}" alt="" onerror="this.remove()">` : ''}<span class="sense" aria-hidden="true">${esc((a.categories[0] || 'A')[0])}</span>
       ${a.img ? '' : ''}${esNova(a) ? '<span class="nova">Nova</span>' : ''}
@@ -325,7 +328,7 @@ function pinta(reinicia = true) {
   $('#neteja').hidden = !hiHaFiltres || S.vista === 'desades';
 
   const veureMapa = S.vista === 'mapa';
-  $('#mapa').hidden = !veureMapa; $('#graella').hidden = veureMapa;
+  $('#mapa').hidden = !veureMapa; $('#graella').hidden = veureMapa; if (!veureMapa) $('#nota-mapa').hidden = true;
   if (veureMapa) { pintaMapa(); $('#mes').hidden = true; return; }
   if (!n) {
     $('#graella').innerHTML = S.vista === 'desades'
@@ -345,7 +348,10 @@ function pintaMapa() {
   }
   if (capaMapa) capaMapa.remove();
   capaMapa = L.layerGroup().addTo(mapa);
-  const amb = LLISTA.filter(a => a.lat != null).slice(0, 1500);
+  const amb = LLISTA.filter(a => a.lat != null && !a.aprox).slice(0, 2000);
+  const sense = LLISTA.length - amb.length;
+  $('#nota-mapa').hidden = !sense;
+  $('#nota-mapa').textContent = sense ? `${sense.toLocaleString('ca')} activitats no surten al mapa perquè no en tenim la ubicació exacta (sobretot les de la Guia Barcelona). Les trobaràs a la Llista.` : '';
   amb.forEach(a => {
     const color = a.gratuit ? '#0c7f57' : '#1f4fd8';
     L.circleMarker([a.lat, a.lon], { radius: 7, color: '#fff', weight: 1.5, fillColor: color, fillOpacity: .9 })
@@ -370,12 +376,13 @@ function obreFitxa(id) {
         ${a.horari ? `<dt>Horari</dt><dd>${esc(a.horari)}</dd>` : ''}
         ${a.preuText && !a.gratuit ? `<dt>Entrades</dt><dd>${esc(a.preuText)}</dd>` : ''}
         ${lloc ? `<dt>Lloc</dt><dd>${esc(lloc)}</dd>` : ''}
-        <dt>Zona</dt><dd>${esc([a.comarca, a.provincia].filter(Boolean).join(', '))}</dd>
+        <dt>Zona</dt><dd>${esc([a.districte, a.comarca, a.provincia].filter(Boolean).join(', '))}</dd>
+        <dt>Font</dt><dd>${esc(FONTS[a.font] || 'Agenda Cultural de Catalunya')}${a.origen ? ` (${esc(a.origen.toLowerCase())})` : ''}</dd>
         ${a.virtual ? `<dt>Modalitat</dt><dd>${esc(a.virtual)}</dd>` : ''}
       </dl>
       <div class="accions">
         ${a.entradesUrl ? `<a class="principal" href="${esc(a.entradesUrl)}" target="_blank" rel="noopener">Compra entrades</a>` : ''}
-        ${a.url ? `<a class="${a.entradesUrl ? '' : 'principal'}" href="${esc(a.url)}" target="_blank" rel="noopener">Web de l'activitat</a>` : `<a href="${cerca}" target="_blank" rel="noopener">Busca'n més informació</a>`}
+        ${a.url ? `<a class="${a.entradesUrl ? '' : 'principal'}" href="${esc(a.url)}" target="_blank" rel="noopener">${a.font === 'guiabcn' ? 'Veure-la a la Guia Barcelona' : "Web de l'activitat"}</a>` : `<a href="${cerca}" target="_blank" rel="noopener">Busca'n més informació</a>`}
         <a href="${mapaUrl}" target="_blank" rel="noopener">Com arribar-hi</a>
         <button data-desa="${esc(a.id)}">${desades.has(a.id) ? 'Treu de desades' : 'Desa'}</button>
       </div>
@@ -438,7 +445,7 @@ async function carrega() {
   DADES.activitats = DADES.activitats.filter(a => a.fi >= avui);
   DADES.activitats.forEach(a => {
     a._durada = (dt(a.fi) - dt(a.inici)) / 864e5;
-    a._cerca = [a.titol, a.subtitol, a.espai, a.municipi, a.comarca, a.categories.join(' '), a.desc].join(' ').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    a._cerca = [a.titol, a.subtitol, a.espai, a.municipi, a.districte, a.comarca, a.categories.join(' '), a.desc].join(' ').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   });
   const act = new Date(DADES.actualitzat);
   $('#estat').textContent = `${DADES.activitats.length.toLocaleString('ca')} activitats, actualitzades el ${act.getDate()} ${MESOS_LLARGS[act.getMonth()]} a les ${act.toLocaleTimeString('ca', { hour: '2-digit', minute: '2-digit' })}`
