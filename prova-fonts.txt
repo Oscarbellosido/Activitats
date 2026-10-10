@@ -1,0 +1,44 @@
+=== https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-diaria
+HTTP 200 application/json;charset=utf-8 8634B https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-diaria
+{"help": "https://opendata-ajuntament.barcelona.cat/data/api/3/action/help_show?name=package_show", "success": true, "result": {"notes_translated": {"ca": "Agenda d'actes i activitats de la ciutat de Barcelona", "en": "Agenda of events and activities of the city of Barcelona ", "es": "Agenda de actos y actividades de la ciudad de Barcelona"}, "geolocation": "Yes_with_map_view", "code": "AGENDA_DIARIA", "url_tornada": {"ca": "http://guia.barcelona.cat/agenda", "en": "http://guia.barcelona.cat/en/agenda/", "es": "http://guia.barcelona.cat/es/agenda/"}, "dataset_fields_description": "El recurs en format __.csv__ cont\u00e9 informaci\u00f3 b\u00e0sica. El recurs en format __.json __cont\u00e9 in
+=== https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-cultural
+HTTP 200 application/json;charset=utf-8 6524B https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-cultural
+{"help": "https://opendata-ajuntament.barcelona.cat/data/api/3/action/help_show?name=package_show", "success": true, "result": {"notes_translated": {"ca": "Activitats culturals de la ciutat de Barcelona classificada per tem\u00e0tiques.  ", "en": "Cultural activities of the city of Barcelona classified by subject matters. ", "es": "Actividades culturales de la ciudad de Barcelona clasificadas por tem\u00e1ticas."}, "geolocation": "Yes_with_map_view", "code": "AGENDA_CULTURAL", "url_tornada": {"ca": "http://guia.barcelona.cat/agenda", "en": "http://guia.barcelona.cat/en/agenda/", "es": "http://guia.barcelona.cat/es/agenda/"}, "dataset_fields_description": "__Important:__ A partir del __24/03/
+=== https://opendata-ajuntament.barcelona.cat/data/dataset/a25e60cd-3083-4252-9fce-81f733871cb1/resource/877ccf66-9106-4ae2-be51-95a9f6469e4c/download
+HTTP 200 text/html 11769B https://opendata-ajuntament.barcelona.cat/challenge
+<!doctype html><html lang="en"><meta charset="UTF-8"><meta content="nofollow,noarchive,noindex" name="robots"><title>Bot Detection</title><meta content="width=device-width,initial-scale=1" name="viewport"><meta content="IE=edge" http-equiv="X-UA-Compatible"><meta content="Bot Detection" name="title"><meta content="Please prove that you are Human before accessing this website" name="description"><meta content="Bot Detection" property="og:title"><meta content="Please prove that you are Human before accessing this website" property="og:description"><meta content="Bot Detection" property="twitter:title"><meta content="Please prove that you are Human before accessing this website" property="twitt
+=== https://do.diba.cat/api/dataset/actesturisme_ca/format/json/pag-ini/1/pag-fi/2
+HTTP 200 application/json;charset=UTF-8 6715B https://do.diba.cat/api/dataset/actesturisme_ca/format/json/pag-ini/1/pag-fi/2
+{"nom":"Turisme: agenda d'activitats","machinename":"actesturisme_ca","descripcio":"Agenda de turisme (català).","paraules_clau":["turisme"," agenda"," activitats"," demarcació"," província"," Barcelona"," Catalunya"," visites"," festes"," rutes"],"llicencia":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/deed.ca","freq_actualitzacio":1,"sector":["turismo"],"tema":["turism"],"responsable":"Oficina de Promoció Turística i Oficina Tècnica de Turisme","idioma":"Català","home_page":"http:\/\/www.barcelonaesmoltmes.cat\/","referencies":[{"url":null,"nom":null}],"tipus":"acte","estat":"public","creacio":"2016-08-03 12:32:38","modificacio":"2026-10-10 12:27:07","entitats":595,"elements":
+=== https://do.diba.cat/api/dataset/agenda_general_ca/format/json/pag-ini/1/pag-fi/2
+HTTP 200 application/json;charset=UTF-8 54B https://do.diba.cat/api/dataset/agenda_general_ca/format/json/pag-ini/1/pag-fi/2
+{"error":"La seva consulta no ha trobat cap resultat"}
+=== https://dadesobertes.diba.cat/api/3/action/package_search?q=agenda&rows=20
+HTTP 404 text/html; charset=utf-8 14513B https://dadesobertes.diba.cat/agenda?rows=20
+<!DOCTYPE html> <html lang="ca" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"> <head>   <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab" />   <meta charset="utf-8">   <meta name="viewport" content="width=device-width, initial-scale=1.0">       <meta name="google-site-verification" content="eMMO_UMLIrFyD0LPZL5__ck81D7FQr0tTzbrEExOGlE">     <meta name="theme-color" content="#A41E34">   
+=== https://dadesobertes.diba.cat/datasets/turisme-agenda-dactivitats
+HTTP 200 text/html; charset=utf-8 116622B https://dadesobertes.diba.cat/datasets/turisme-agenda-dactivitats
+<!DOCTYPE html> <html lang="ca" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"> <head>   <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab" />   <meta charset="utf-8">   <meta name="viewport" content="width=device-width, initial-scale=1.0">       <meta name="google-site-verification" content="eMMO_UMLIrFyD0LPZL5__ck81D7FQr0tTzbrEExOGlE">     <meta name="theme-color" content="#A41E34">   
+=== https://www.tresc.cat/robots.txt
+HTTP 200 text/plain 161B https://www.tresc.cat/robots.txt
+User-agent: * Disallow: /ScriptResource.axd Disallow: /WebResource.axd Disallow: /f/*/ics/$ Disallow: /f/*/gcal/$ Sitemap: https://www.tresc.cat/sitemap.xml
+=== https://guia.barcelona.cat/ca/agenda
+HTTP 200 text/html; charset=utf-8 130702B https://guia.barcelona.cat/
+<!DOCTYPE html> <html lang="ca"> <head>   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />      <title>Guia Barcelona: agenda d’activitats, directoris i cursos i tallers  | Ajuntament de Barcelona </title>    <meta name="description" content="Guia i Agenda d'actes i activitats, directoris d'entitats i equipaments de la ciutat de Barcelona" /><meta name="keywords" content="agenda, calendari, actes, acte, activitats, directori, directoris, equipament, equipaments, entitats, entitat, restaurants, associacions" />   <link type="text/css" rel="stylesheet" href="https://guia.barcelona.cat/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-06-27T06:24:44.733727
+opendatabcn_agenda-csv.csv CSV 2021-06-11T06:01:41 https://opendata-ajuntament.barcelona.cat/data/dataset/a25e60cd-3083-4252-9fce-81f733871cb1/resource/877ccf66-9106-4ae2-be51-95a9f6469e4c/download
+opendatabcn_agenda.json JSON 2021-06-10T06:01:58 https://opendata-ajuntament.barcelona.cat/data/dataset/a25e60cd-3083-4252-9fce-81f733871cb1/resource/da9e71de-0f8e-417d-928a-56380bfd0231/download
