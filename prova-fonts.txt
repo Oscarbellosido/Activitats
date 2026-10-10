@@ -1,0 +1,183 @@
+ERR agenda-cultural Expecting value: line 1 column 1 (char 0) 
+ERR agenda-diaria Expecting value: line 1 column 1 (char 0) 
+
+=== guia links 200
+   #agenda-recomenada
+   #cercador-agenda
+   #cercador-cursos
+   #cercador-equipaments
+   #cercador-totaguia
+   /ca/llistat?tipuscerca=agenda&tipusact=0061901010&especialitat=0061902010001&tr=619&c=00619*
+   /ca/llistat?tipuscerca=agenda&tipusact=0061901023&especialitat=0061902023026&dt
+   http://guia.barcelona.cat/ca/llistat?pg=search&cerca=*:*&tr=620&af=code_prop&c=00620*&code0=0062001004&code1=0062002004034&nr=10&code2=0062003004034000
+   http://guia.barcelona.cat/ca/llistat?pg=search&cerca=*:*&tr=620&sort=namesort,asc&af=code_prop&c=00620*&code0=0062001004&code1=0062002004020&nr=10&code2=0062003004020002
+   http://guia.barcelona.cat/ca/llistat?pg=search&cerca=*:*&tr=620&sort=popularity,desc&af=code_prop&c=00620*&code0=0062001013&code1=0062002013002&nr=10&code2=0062003013002004
+   http://guia.barcelona.cat/ca/llistat?pg=search&cerca=*:*&tr=620&sort=popularity,desc&af=code_prop&c=00620*&code0=0062001013&code1=0062002013014&nr=10&code2=0062003013014002
+   http://guia.barcelona.cat/ca/llistat?pg=search&cerca=Estaci%C3%B3+de+rodalies+de+Renfe&tr=620&sort=proxdate,asc&af=code_prop&c=00620*&nr=10&code0=0062001015
+   http://guia.barcelona.cat/ca/llistat?pg=search&cerca=concerts&tr=618,619,620&sort=popularity,desc&af=code_prop&c=00618*,00619*,00620*&nr=10&d=avui
+   http://guia.barcelona.cat/ca/llistat?tipuscerca=agenda&tipusact=0061901009&especialitat=0061902009035&dt=
+   http://guia.barcelona.cat/ca/llistat?tipuscerca=directoris&tipusact=0062001006&especialitat=0062002006002&c=006200?006002*;001020?001*
+   http://guia.barcelona.cat/ca/llistat?tipuscerca=directoris&tipusact=0062001012&c=00620*&tr=620
+   http://guia.barcelona.cat/ca/llistat?tipuscerca=generica&cerca=dni
+   https://cercador.barcelona.cat/ca
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C03%2CDISE-Font-magica-de-Montjuic-6-8-10-VZ-23-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C06%2CFoto-piscina-Bernat-Picornell-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C06%2Cllac-can-drago3-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C11%2Ccampnou-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C11%2Ccccb-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C11%2Cfira-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C12%2Cauditori-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C12%2Cmnac-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C12%2Cpalau-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C12%2Cpalaujordi-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C12%2Cparcforum-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2014%2C12%2Ctnc-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C01%2C04142530%2C224414513063014_VZambrano-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C01%2Cpark-guell-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C02%2CRecinteModernistaDeSantPau-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C05%2C1-2-1-2-10-DISE-Museu-Picasso-26-1-12-VZ-44-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C05%2C1-2-2-2-7-150-DISE-Sagrada-Familia-25-1-12-VZ-08-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C05%2Ccosmocaixa-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C05%2Cmercat-boqueria-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C05%2Cparc-ciutadella1-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C05%2Czoo-barcelona-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2015%2C06%2Cmarbella-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C01%2C25194038%2CJardins-del-Teatre-Grec-1-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C01%2CMonestirPedralbes7-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C03%2Cjardibotanic_006-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C06%2CAZ8Q9729-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C07%2Cparclaberint-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C09%2CAZ8Q9358-760x428-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2016%2C10%2C993334113051914-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02125259%2Cmuseu-etnologic-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02125307%2Ccastell-monjuic-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02130732%2CImatge_Born-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02131606%2CMuseu-Blau_VZambrano-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02142654%2Cmuseu-mares-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02143248%2Cmuseu_cultures_mon-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02145218%2Cel-teleferic-de-montjuic_2-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02161955%2C1_El-Museu-de-la-M%25C3%25BAsica-%25C3%25A9s-a-LAuditori-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C02171647%2CEdifici-Disseny-Hub-Barcelona_foto-Lourdes-Jansana-copia-4-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C04114736%2CDomus_Muhba-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C04115110%2Celcall_muhba-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C04115437%2Cplaca_rei_muhba2-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C04141235%2CCollserola_Tavisa-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C04164635%2Cvia_sepulcral_muhba-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C10%2C04165249%2CREFUGI-307_muhba-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C11%2C06170723%2CEstaci%25C3%25B3-del-Nord-i-el-Parc-de-lEstaci%25C3%25B3-del-Nord-1-web-760x428-570x321.png
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C11%2C06171223%2CEstaci%25C3%25B3-de-Fran%25C3%25A7a-1-web-760x428-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2017%2C11%2C06172340%2CAntiga-F%25C3%25A0brica-Damm-1.jpg-web-760x428-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/2018%2C06%2C11101645%2C16_6424-1-570x321.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/Copia_de_swab2026.570x321.e7f2e0ba.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/Festa_Major_de_Sarria.570x321.2c2a6fd2.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/Gran_Teatre_del_Liceu.570x321.ad5d3150.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/bonsidolents.570x321.017212da.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/cineclubisme.570x321.54fe92b4.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/escena.570x321.4bbad121.jpg
+   https://estatics-nasia.dtibcn.cat/nasia-pro/media/la_puntual.570x321.0c03efb7.jpg
+   https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=cinema
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=espectacles
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=esports
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=exposicions
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=festes
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=fires
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=infants
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=jornades%20i%20conferencies
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=musica
+   https://guia.barcelona.cat/ca/agenda-recomenada/la-meva-barcelona?ctg=rutes
+   https://guia.barcelona.cat/ca/llistat?&pg=search&c=40196907%3B1009048%3B131002
+   https://guia.barcelona.cat/ca/llistat?tipuscerca=agenda&tipusact=0061901023&especialitat=0061902023026&dt
+   https://guia.barcelona.cat/ca/llistat?tipuscerca=directoris&tipusact=0062001004&especialitat=0062002004023
+   https://guia.barcelona.cat/ca/llistat?tipuscerca=directoris&tipusact=0062001009&especialitat=0062002009010&c=001020_001*
+   https://guia.barcelona.cat/ca/llistat?tipuscerca=directoris&tipusact=0062001013&especialitat=0062002013000
+   https://guia.barcelona.cat/ca/llistat?tipuscerca=directoris&tipusact=0062001015&especialitat=0062002015012
+   https://www.barcelona.cat/assets/images/brand/banner/2025/ico-agenda.svg
+   https://www.barcelona.cat/assetsdi/estatics-ajuntament/web/css/footer/footer.css
+   https://www.barcelona.cat/estatics/geobcn/1.0/api-full-ca.js
+
+=== guia rss
+ERR HTTP Error 404: Not Found https://guia.barcelona.cat/ca/rss 0B
+
+
+=== guia agenda.xml
+ERR HTTP Error 404: Not Found https://guia.barcelona.cat/agenda.xml 0B
+
+
+=== guia api
+ERR HTTP Error 404: Not Found https://guia.barcelona.cat/api/agenda 0B
+
+
+=== guia sitemap
+200 text/xml; charset=utf-8 https://guia.barcelona.cat/sitemap.xml 677B
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/ca/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>http://guia.barcelona.cat/ca</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>http://guia.barcelona.cat/ca/sense-resultats</loc><lastmod>2018-02-26T11:47Z</lastmod><changefreq>never</changefreq></url>
+<url><loc>http://guia.barcelona.cat/ca/accessibilitat</loc><lastmod>2015-01-13T13:29Z</lastmod><changefreq>never</changefreq></url>
+<url><loc>http://guia.barcelona.cat/ca/detall/test-redirect</loc><lastmod>2026-07-23T11:57Z</lastmod><changefreq>hourly</changefreq></url>
+</urlset>
+
+
+=== guia robots
+200 text/plain https://guia.barcelona.cat/robots.txt 2223B
+#
+# robots.txt
+#
+# This file is to prevent the crawling and indexing of certain parts
+# of your site by web crawlers and spiders run by sites like Yahoo!
+# and Google. By telling these "robots" where not to go on your site,
+# you save bandwidth and server resources.
+#
+# This file will be ignored unless it is at the root of your host:
+# Used:    http://example.com/robots.txt
+# Ignored: http://example.com/site/robots.txt
+#
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Crawl-delay: 10
+# CSS, JS, Images
+Allow: /misc/*.css$
+Allow: /misc/*.css?
+Allow: /misc/*.js$
+Allow: /misc/*.js?
+Allow: /misc/*.gif
+Allow: /misc/*.jpg
+Allow: /misc/*.jpeg
+Allow: /misc/*.png
+Allow: /modules/*.css$
+Allow: /modules/*.css?
+Allow: /modules/*.js$
+Al
+
+=== diba turisme 1 element
+200 application/json;charset=UTF-8 https://do.diba.cat/api/dataset/actesturisme_ca/format/json/pag-ini/1/pag-fi/1 3733B
+{"nom":"Turisme: agenda d'activitats","machinename":"actesturisme_ca","descripcio":"Agenda de turisme (català).","paraules_clau":["turisme"," agenda"," activitats"," demarcació"," província"," Barcelona"," Catalunya"," visites"," festes"," rutes"],"llicencia":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/deed.ca","freq_actualitzacio":1,"sector":["turismo"],"tema":["turism"],"responsable":"Oficina de Promoció Turística i Oficina Tècnica de Turisme","idioma":"Català","home_page":"http:\/\/www.barcelonaesmoltmes.cat\/","referencies":[{"url":null,"nom":null}],"tipus":"acte","estat":"public","creacio":"2016-08-03 12:32:38","modificacio":"2026-10-10 12:27:07","entitats":595,"elements":[{"acte_id":"agendaturisme458667122","titol":"Sortida descoberta de patrimoni Setembre 26","data_inici":"2026-09-13 00:00:00","data_fi":"2026-09-13 23:59:59","descripcio":"Ruta des del Cobert de la Màquina de Batre direcció Sant Benet, passant per Sant Onofre i acabant a Can Figueres","imatge":[],"acte_organitzadors":"Ajuntament de Sant Fruitós de Bages","acte_url":"https:\/\/www.barcelonaesmoltmes.cat\/-\/sortida-descoberta-de-patrimoni_setembre-26-","telefon_contacte":["93 878 97 02"],"email":[],"grup_adreca":{"adreca_nom":"Ruta passant per Sant Benet passant per Sant Onofre i acabant a Can Figueres","adreca":"Sant Fruitós de Bages","codi_postal":"08272","municipi_nom":"Sant Fruitós de Bages","localitzacio":"41.7508000,1.8728000"},"url_general":"https:\/\/santfruitos.cat\/","colaboradors":"","rel_municipis":{"ine":"08213","municipi_nom":"Sant Fruitós de Bages","municipi_nom_curt":"Sant Fruitós de Bages","municipi_article":"","municipi_transliterat":"sant_fruitos_de_bages","municipi_curt_transliterat":"sant_fruitos_de_bages","centre_municipal":"41.7507358,1.8734962","grup_comarca":{"comarca_codi":"7","comarca_nom":"Bages"},"grup_provincia":{"provincia_codi":"8","provincia_nom":"Barcelona"},"grup_ajuntament":{"adreca-completa":"Ctra. de Vic, 35-37, 08272 Sant Fruitós de Bages","adreca":"Ctra. de Vic, 35-37","codi_postal":"08272","localitzacio":"41.7507358,1.8734962","telefon_contacte":"938789700","fax":"938760486","email":"ajuntament@santfruitos.cat","url_general":"https:\/\/www.santfruitos.cat","cif":"P0821200C"},"municipi_escut":"https:\/\/media.diba.cat\/diba\/municipis\/img\/escuts\/ec08213.png","municipi_bandera":"https:\/\/media.diba.cat\/diba\/municipis\/img\/banderes\/bn08213.gif","municipi_vista":"https:\/\/media.diba.cat\/diba\/municipis\/img\/vistes\/vista08213.jpg","ine6":"082135","nom_dbpedia":"Sant_Fruitós_de_Bages","nombre_habitants":"9333","extensio":"22.2","altitud":"246"},"rel_temes":{"count":0,"elements":"12"},"tags":["Bages","000. NO MOSTRAR FORMULARI","En família","Sant Fruitós de Bages","Senderisme","Paisatges Barcelona"],"categoria":["bages","000_no_mostrar_formulari","en_familia","sant_fruitos_de_bages","senderisme","paisatges_barcelona"],"rel_punt":"","preu":"","peu_imatge":[],"durada":"","observacions_horari":"","dies":"","tipus":[],"public":[],"observacions":"Sortida emmarcada dins del cicle de visites mensuals per donar a conèixer el nostre patrimoni. Aquesta edició és especial perquè just el 13 de setembre és l'aniversari del naixement de l'Alfred Figueres, i és per això que la passejada acabarà davant de la seva casa natal.<br\/><br\/>Sortida: Cobert de la Màquina del Batre <br\/>Dificultat: Baixa, apta per a totes les edats.<br\/> <br\/><br\/>Inscripcions a l'Àrea de Promoció Econòmica (Nexe- Espai Jove) de dilluns a divendres de 09:00 a 14:00h o en línia a través de l'APP de l'Ajuntament”<br\/><br\/>","rel_comarca":["7"],"documentacio":[],"assistents":"","aforament":"","inscripcio":"","cos":"","cercador_codi":"","url_inscripcions":"","id_secundari":""}]}
+
+=== diba pagina museus-agenda-dactivitats 200 ['do.diba.cat/api/dataset/actesmuseus', 'do.diba.cat/api/dataset/temes']
+
+=== diba pagina biblioteques-i-bibliobusos-agenda-dactivitats 200 ['do.diba.cat/api/dataset/actesbiblioteques_ca', 'do.diba.cat/api/dataset/temes']
+
+=== diba pagina agenda-general-de-la-diputacio 200 ['do.diba.cat/api/dataset/agendageneral_ca', 'do.diba.cat/api/dataset/temes']
+
+=== diba pagina turisme-agenda-dactivitats 200 ['do.diba.cat/api/dataset/actesturisme_ca', 'do.diba.cat/api/dataset/actesturisme_de', 'do.diba.cat/api/dataset/actesturisme_en', 'do.diba.cat/api/dataset/actesturisme_es', 'do.diba.cat/api/dataset/actesturisme_fr', 'do.diba.cat/api/dataset/actesturisme_ru', 'do.diba.cat/api/dataset/temes']
+
+=== diba actesmuseus_ca
+200 application/json;charset=UTF-8 https://do.diba.cat/api/dataset/actesmuseus_ca/format/json/pag-ini/1/pag-fi/1 54B
+{"error":"La seva consulta no ha trobat cap resultat"}
+
+=== diba actesbiblioteques_ca
+200 application/json;charset=UTF-8 https://do.diba.cat/api/dataset/actesbiblioteques_ca/format/json/pag-ini/1/pag-fi/1 3317B
+{"nom":"Biblioteques i bibliobusos: agenda d'activitats","machinename":"actesbiblioteques_ca","descripcio":"Agenda d'actes de la Xarxa de Biblioteques Municipals de la Província de Barcelona (català).","paraules_clau":["biblioteques","província","municipals","xbm","bibliobusos","llibres","lectura","préstec","catàleg","agenda"],"llicencia":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/deed.ca","freq_actualitzacio":1,"sector":["cultura-ocio"],"tema":["cultura"],"responsable":"Gerència de Serveis de Biblioteques","idioma":"Català","home_page":"http:\/\/bibliotecavirtual.diba.cat\/","referenc
+
+=== diba agenda_ca
+200 application/json;charset=UTF-8 https://do.diba.cat/api/dataset/agenda_ca/format/json/pag-ini/1/pag-fi/1 54B
+{"error":"La seva consulta no ha trobat cap resultat"}
+
+=== diba actes_ca
+200 application/json;charset=UTF-8 https://do.diba.cat/api/dataset/actes_ca/format/json/pag-ini/1/pag-fi/1 54B
+{"error":"La seva consulta no ha trobat cap resultat"}
