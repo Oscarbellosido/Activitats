@@ -1,0 +1,66 @@
+93756 /tmp/g
+TITLE Resultats de la cerca | Barcelona Guide: activities calendar, directories and courses | Ajuntament de Barcelona
+LINK Avui (760) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&d=avui
+LINK Demà (520) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&d=dema
+LINK Aquest cap de setmana (760) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&d=cap
+LINK Caps de setmana (2369) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&d=caps
+LINK 7 dies següents (1821) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&d=setmana
+LINK 30 dies següents (3259) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&d=mes
+LINK Gratuït (2855) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&ticket=3
+LINK Pagament (2300) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&ticket=4
+LINK Reservat (48) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&ticket=5
+LINK Grup (13) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&ticket=6
+LINK Només per invitació (7) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&ticket=7
+LINK D'1€ a 30€ (1543) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&p=de1a30
+LINK De 30 € a 60 € (436) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&p=de30a60
+LINK Més de 60 euros (177) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&p=mes60
+LINK Sense informació (2669) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&p=nopreu
+LINK Ciutat Vella (1008) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Ciutat+Vella
+LINK Eixample (886) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Eixample
+LINK Gràcia (294) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Gràcia
+LINK Horta-Guinardó (430) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Horta-Guinardó
+LINK Les Corts (278) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Les+Corts
+LINK Nou Barris (369) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Nou+Barris
+LINK Sant Andreu (408) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Sant+Andreu
+LINK Sant Martí (580) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Sant+Martí
+LINK Sants-Montjuïc (684) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Sants-Montjuïc
+LINK Sarrià-Sant Gervasi (504) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&districtstr=Sarrià-Sant+Gervasi
+LINK Calendaris de dies festius i canvis d'horari (7) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901030
+LINK Cinema i projeccions circuit no comercial (241) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901002
+LINK Colònies i casals (7) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901004
+LINK Congressos, conferències i col·loquis (862) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901003
+LINK Esports (128) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901008
+LINK Exposicions (532) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901009
+LINK Festes populars i diades (776) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901023
+LINK Fires, mostres i mercats ocasionals (147) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901010
+LINK Jocs (218) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901026
+LINK Literatura (273) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901013
+LINK Moda i desfilades (1) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901017
+LINK Música (1292) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901019
+LINK Nens i nenes: activitats (970) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901001
+LINK Premis, concursos i gales (56) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901018
+LINK Religiosos, actes (5) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901020
+LINK Solidaritat i sensibilització (105) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901029
+LINK Teatre, circ i dansa (830) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901014
+LINK Visites, rutes i excursions (603) => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&code0=0061901012
+LINK Popularitat => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&nr=50&c=00619*;00619*&tr=619&nr=50&sort=popularity,desc
+LINK Alfabèticament => ?&pg=search&xout=1&ajax=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&cerca=*:*&nr=50&c=00619*;00619*&tr=619&nr=50&sort=namesort,asc
+LINK Consulta més resultats => ?pg=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&idma=ca&cerca=*:*
+PAG page-llistat i18n-ca role-anonymous-user with-subnav page-llistat section-llistat pa
+PAG page" class="page with-navigation">
+
+      
+PAG page -->
+  
+
+ULTIM ITEM+PEU class="item"> <div class="media"><img alt="" src="https://estatics-nasia.dtibcn.cat/nasia-pro/media/visitalapedreraopendate.200x200.4eda14bf.jpg"/></div><div class="dades"><h3><a href="detall/visita-audioguia-la-pedrera-open-date_99400728150.html">Visita audioguia &#039;La Pedrera Open Date&#039;</a></h3><dl><dt>On:</dt><dd><a href="detall/fundacio-catalunya-la-pedrera_92086024002.html">Fundació Catalunya La Pedrera</a></dd><dt>Quan:</dt><dd>Acte permanent</dd><dt>Adreça:</dt><dd>Passeig de Gràcia 92 (Eixample)</dd></dl><p class="categoria cat-ag"><span>Agenda</span></p></div></div> </div> <div id="mes-activitats"><a href="https://guia.barcelona.cat/ca/llistat?pg=search&af=code_prop&wtarget=la-meva-barcelona&nfwt=1&sort=proxdate,asc&nr=50&c=00619*;00619*&tr=619&idma=ca&cerca=*:*">Consulta més resultats</a></div> </div> </div> </div> </div> </div> </div> </div> <!-- /block-inner /block --> </div> </div> </div> </div> <!-- /Zone Main Content --> <!-- ________________________ Zone Row 3 _______________________ --> <!-- /Zone Row 3 --> <!-- ________________________ Zone Row 4 _______________________ --> <!-- /Zone Row 4 --> <!-- ________________________ Zone Row 5 _______________________ --> <!-- /Zone Row 5 --> <!-- ________________________ Zone Row 6 _______________________ --> <!-- /Zone Row 6 --> <!-- ________________________ Zone Row 7 _______________________ --> <!-- /Zone Row 7 --> <!-- ________________________ Zone Row 8 _______________________ --> <!-- /Zone Row 8 --> <!-- ________________________ Zone Row 9 _______________________ --> <!-- /Zone Row 9 --> <!-- ______________________ FOOTER _______________________ --> <footer id="footer"> <div id="zone-footer-wrapper" class="zone-wrapper"> <div id="region-footer" class="grid"> <div class="region region-footer"> <div id="footer--ajuntament" role="region" aria-label="footer"> <div class="container"> <div id="menu-footer"> <a href="https://www.barcelona.cat/ca" target="_blank"> <img src="https://www.barcelona.cat/assetsdi/img/2025/logo-negre.svg" alt="Logo de l'Ajuntament de Barcelona" width="180" height="38"> </a> <ul class="menu-footer"> <li class="item-menu-footer"><a href="/ca/avis-legal">Avís Legal</a></li> <li class="item-menu-footer"><a href="https://ajuntament.barcelona.cat/declaracio-accessibilitat/ca/guia-barcelona">Accessibilitat</a></li> </ul> </div> </div> </div> </div> </div> </div> </footer> <!-- /footer --> </div> <!-- /page --> </body> </html> 
+NITEMS 50
+=== amb dates i pàgina 2
+d=setmana : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+d=mes : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+df=10/10/2026&dt=10/11/2026 : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+dini=10/10/2026&dfi=10/11/2026 : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+pagina=2 : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+page=2 : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+pg=search&st=50 : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
+start=50 : 50 items, primer: detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html | quan: Quan:</dt><dd>Acte permanent | total: 
