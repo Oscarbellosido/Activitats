@@ -91,9 +91,14 @@ function analitzaPreu(r) {
 
 function ubicacio(r) {
   const camí = String(r.comarca_i_municipi || r.municipi || '').split(',')[0].replace(/^agenda:ubicacions\//, '');
-  const [prov, com, mun] = camí.split('/');
+  let [prov, com, mun] = camí.split('/');
+  // Alguns registres tenen el camí mal format (p. ex. "agenda:ubicacions/manresa"): es dedueix pel codi postal
+  if (!PROVINCIES[prov]) {
+    const perCP = { '08': 'barcelona', '17': 'girona', '25': 'lleida', '43': 'tarragona' }[String(r.codi_postal || '').trim().slice(0, 2)];
+    if (perCP) { if (!com && prov && !/^fora/.test(prov)) mun = mun || prov; prov = perCP; }
+  }
   return {
-    provincia: PROVINCIES[prov] || (prov ? humanitza(prov) : 'Sense ubicació'),
+    provincia: PROVINCIES[prov] || (/^fora/.test(prov || '') ? 'Fora de Catalunya' : 'Sense ubicació'),
     comarca: com ? (COMARQUES[com] || humanitza(com)) : '',
     municipi: textNet(r.localitat) || (mun ? humanitza(mun) : ''),
   };
