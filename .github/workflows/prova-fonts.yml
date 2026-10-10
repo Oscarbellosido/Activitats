@@ -1,10 +1,14 @@
 name: Prova fonts (temporal)
 on: workflow_dispatch
+permissions:
+  contents: write
 jobs:
   prova:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: |
+          exec > >(tee prova-fonts.txt) 2>&1
           p() { echo "=== $1"; curl -sSL -m 40 -A "Mozilla/5.0 (Activitats Catalunya; github.com/Oscarbellosido/Activitats)" -o /tmp/o -w "HTTP %{http_code} %{content_type} %{size_download}B %{url_effective}\n" "$1"; head -c 700 /tmp/o | tr '\n' ' '; echo; }
           p "https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-diaria"
           p "https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-cultural"
@@ -17,3 +21,6 @@ jobs:
           p "https://guia.barcelona.cat/ca/agenda"
           curl -sSL -m 40 "https://dadesobertes.diba.cat/api/3/action/package_search?q=agenda&rows=30" | python3 -c "import json,sys;d=json.load(sys.stdin);[print(r['name'],'|',[(x.get('format'),x.get('url')) for x in r.get('resources',[])][:3]) for r in d['result']['results']]" || true
           curl -sSL -m 40 "https://opendata-ajuntament.barcelona.cat/data/api/action/package_show?id=agenda-diaria" | python3 -c "import json,sys;d=json.load(sys.stdin)['result'];print(d.get('metadata_modified'));[print(x.get('name'),x.get('format'),x.get('last_modified'),x.get('url')) for x in d['resources']]" || true
+      - run: |
+          git config user.name activitats-bot; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prova-fonts.txt; git commit -m "Resultat prova fonts"; git push
