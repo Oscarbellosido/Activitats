@@ -186,6 +186,14 @@ async function main() {
     a.vista = vistes.get(a.id) || ara.data;
     perId.set(a.id, a); // l'API pot repetir el mateix codi en diverses ubicacions: ens quedem amb l'últim
   }
+  // Les que no tenen ni camí ni codi postal: província i comarca de l'activitat amb ubicació més propera
+  const ambLloc = [...perId.values()].filter(a => PROVINCIES[a.provincia.toLowerCase()] && a.lat != null);
+  for (const a of perId.values()) {
+    if (a.provincia !== 'Sense ubicació' || a.lat == null || !ambLloc.length) continue;
+    let millor = null, dMin = Infinity;
+    for (const b of ambLloc) { const d = (a.lat - b.lat) ** 2 + (a.lon - b.lon) ** 2; if (d < dMin) { dMin = d; millor = b; } }
+    if (dMin < 0.04) { a.provincia = millor.provincia; a.comarca = a.comarca || millor.comarca; } // ~20 km
+  }
   const activitats = [...perId.values()].sort((x, y) => (x.inici.localeCompare(y.inici)) || x.titol.localeCompare(y.titol, 'ca'));
   const noves = primeraCàrrega ? 0 : activitats.filter(a => a.vista === ara.data).length;
 
