@@ -1,0 +1,9 @@
+B1 musica                                     items=500 primers=['99400698476', '99400698365', '99400755663'] Musica=None Gracia=24 CV=110
+B1 musica+gracia (codificat)                  items=24 primers=['99400756467', '99400778324', '99400734100'] Musica=None Gracia=None CV=None
+B1 musica+gracia (literal)                    items=24 primers=['99400756467', '99400778324', '99400734100'] Musica=None Gracia=None CV=None
+B2 musica                                     items=0 primers=[] Musica=None Gracia=None CV=None
+B2 musica+gracia                              items=0 primers=[] Musica=None Gracia=None CV=None
+B2 musica+CV                                  items=0 primers=[] Musica=None Gracia=None CV=None
+B2 gracia                                     items=0 primers=[] Musica=None Gracia=None CV=None
+B3 sense d (tot)                              items=0 primers=[] Musica=None Gracia=None CV=None
+B3 musica sense d                             items=0 primers=[] Musica=None Gracia=None CV=None
