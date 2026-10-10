@@ -1,0 +1,98 @@
+=== diba filtres
+-- actesbiblioteques_ca/format/json/pag-ini/1/pag-fi/3/camp-data_inici-gte/2026-10-10
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+-- actesbiblioteques_ca/format/json/pag-ini/1/pag-fi/3/ordre/data_inici/desc
+None 3 ['2024-04-05 17:00:00', '2024-04-27 11:30:00', '2024-04-23 17:00:00']
+-- actesbiblioteques_ca/format/json/pag-ini/1/pag-fi/3/camp-data_inici/2026-10-1
+None 0 []
+-- actesbiblioteques_ca/format/json/pag-ini/1/pag-fi/3/camp-data_fi-gte/2026-10-10
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+-- actesbiblioteques_ca/format/json/pag-ini/1/pag-fi/3/data_inici-gte/2026-10-10
+None 3 ['2024-04-05 17:00:00', '2024-04-27 11:30:00', '2024-04-23 17:00:00']
+actesbiblioteques_ca pag 1: 5000 67 2004-05-31 19:00:00 5202-02-25 11:00:00
+actesbiblioteques_ca pag 5001: 5000 37 2014-06-25 15:00:00 5742-12-21 18:30:00
+actesbiblioteques_ca pag 10001: 5000 27 2015-03-10 11:00:00 5202-05-18 18:00:00
+actesbiblioteques_ca pag 15001: 5000 34 2019-10-25 18:00:00 2925-09-10 11:00:00
+actesbiblioteques_ca pag 20001: 5000 34 2015-10-03 19:00:00 2027-10-15 00:00:00
+actesbiblioteques_ca pag 25001: 5000 59 2023-04-08 10:30:00 3202-02-02 18:19:19
+actesbiblioteques_ca pag 30001: 4664 1423 2016-07-01 18:00:00 9202-06-19 12:00:00
+actesbiblioteques_ca pag 35001: 0 0 - -
+actesmuseus pag 1: 5000 9 2006-02-23 00:00:00 2026-10-25 00:00:00
+actesmuseus pag 5001: 5000 15 2005-09-23 00:00:00 2026-11-24 00:00:00
+actesmuseus pag 10001: 1385 105 2008-01-01 00:00:00 2026-12-20 00:00:00
+actesmuseus pag 15001: 0 0 - -
+=== guia agenda llistat
+91448 /tmp/g
+53
+Resultats de la cerca | Barcelona Guide: activities calendar, directories and courses | Ajuntament de Barcelona
+Resultats de la cerca
+p;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901019">Música (69)</a></li><li><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901001">Nens i nenes: activitats (137)</a></li><li><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901018">Premis, concursos i gales (6)</a></li><li><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901020">Religiosos, actes (2)</a></li><li><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901029">Solidaritat i sensibilització (16)</a></li><li><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901014">Teatre, circ i dansa (81)</a></li><li><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;sort=proxdate,asc&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;code0=0061901012">Visites, rutes i excursions (148)</a></li></ul></div></div></div></div>
+
+
+
+
+<div id="contingut-asia" class="llistat-cerca">
+
+<div id="accions"><dl><dt>Endreça per:</dt><dd><span class="selected">Data</span></dd><dd><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;nr=50&amp;sort=popularity,desc">Popularitat</a></dd><dd><a href="?&amp;pg=search&amp;xout=1&amp;ajax=search&amp;af=code_prop&amp;wtarget=la-meva-barcelona&amp;nfwt=1&amp;cerca=*:*&amp;d=avui&amp;nr=50&amp;c=00619*;00619*&amp;tr=619&amp;nr=50&amp;sort=namesort,asc">Alfabèticament</a></dd></dl><input type='hidden' name='nr' value='10' ></div><div class="info-llistat"><div id="llistat-resultats">
+
+    
+
+
+
+
+
+	<div class="item">
+
+		<div class="dades"><h3><a href="detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html">Visites a l&#039;Esplanada de l&#039;Anella Olímpica</a></h3><dl><dt>On:</dt><dd>Anella Olímpica</dd><dt>Quan:</dt><dd>Acte permanent</dd><dt>Adreça:</dt><dd>Anella Olímpica</dl><p class="categoria cat-ag"><span>Agenda</span></p></div></div><div class="item">
+
+		<div class="media"><img alt="" src="https://estatics-nasia.dtibcn.cat/nasia-pro/media/exposicio_ernest_lluch.200x200.c8b715d1.jpg"/></div><div class="dades"><h3><a href="detall/exposicio-fotografica-en-memoria-dernest-lluch_99400767520.html">Exposició fotogràfica en memòria d’Ernest Lluch</a></h3><dl><dt>On:</dt><dd>Vestíbul principal de l'estació de metro Ernest Lluch - L5</dd><dt>Quan:</dt><dd>Acte permanent</dd><dt>Adreça:</dt><dd>Vestíbul principal de l&#039;estació de metro Ernest Lluch - L5</dl><p class="categoria cat-ag"><span>Agenda</span></p></div></div><div class="item">
+
+		<div class="dades"><h3><a href="detall/despertar-diabolic_99400743117.html">&quot;Festa Major de Sarrià&quot;: Despertar Diabòlic</a></h3><dl><dt>On:</dt><dd>Diversos recorreguts. Inici Pl. Sant Vicenç de Sarrià</dd><dt>Quan:</dt><dd>10/10/2026</dd><dt>Adreça:</dt><dd>Plaça de Sant Vicenç de Sarrià 1 (Sarrià-Sant Gervasi)</dd></dl><p class="categoria cat-ag"><span>Agenda</span></p></div></div><div class="item">
+
+		<div class="media"><img alt="" src="https://estatics-nasia.dtibcn.cat/nasia-pro/media/33.200x200.92f1962e.jpg"/></div><div class="dades"><h3><a href="detall/visita-guiada-la-pedrera-sunrise_99400691856.html">Visita guiada &#039;La Pedrera Sunrise&#039;</a></h3><dl><dt>On:</dt><dd><a href="detall/fundacio-catalunya-la-pedrera_92086024002.html">Fundació Catalunya  La Pedrera</a></dd><dt>Quan:</dt><dd>Acte permanent</dd><dt>Adreça:</dt><dd>Passeig de Gràcia 92 (Eixample)</dd></dl><p class="categoria cat-ag"><span>Agenda</span></p></div></div><div class="item">
+
+		<div class="dades"><h3><a href="detall/exposicio-entre-la-precarietat-i-langoixa_99400763503.html">Exposició &quot;Entre la precarietat i l´angoixa&quot;</a></h3><dl><dt>On:</dt><dd><a href="detall/centre-civic-matas-i-ramis_92086035681.html">Centre Cívic Matas i Ramis</a></dd><dt>Quan:</dt><dd>Del 17/09/2026 al 19/12/2026</dd><dt>Adreça:</dt><dd>Carrer de Feliu i Codina 20 (Horta-Guinardó)</dd><dt>Telèfon:</dt><dd><a href="tel:934072356">934072356</a></dd></dl><p class="categoria cat-ag"><span>Agenda</span></p></div></div><div class="item">
+
+		<div class="dades"><h3><a href="detall/exp
+grep: write error: Broken pipe
+=== detall detall/visites-a-l-esplanada-de-l-anella-olimpica_96269184817.html
+68418 /tmp/det
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="home">
+ | | GuiaBCN | | | Activitats i equipaments de Barcelona | | | | | | | | | | | | | | | | (function ($){ $(document).ready(function(e) { marcaCercador('generica',["00619*"]); }); })(jQuery); | | | | | | Tota la guia | | | | | | Agenda | | | | | | Directoris | | | | | | Cursos i tallers | | | | | | | | | Per paraula | | | | | | | Cerca avançada | | | | | Per districte i barri | | | Per districte | | | Selecciona el districte | | Ciutat Vella | | Eixample | | Sants-Montjuïc | | Les Corts | | Sarrià-Sant Gervasi | | Gràcia | | Horta-Guinardó | | Nou barris | | Sant Andreu | | Sant Martí | | | | | | | | Per adreça | | | | Carrer | | | | | Núm. | | | | | | | | | --> | | | | | | | | | | (function ($){ $(document).ready(function(){ var base_url = "https://guia.barcelona.cat"; initform(base_url); }); })(jQuery); | <d
+=== ckan reintent
+agendes-publiques-comissionats 2026-03-18T19:09:20.853678 ['CSV', 'CSV', 'CSV', 'CSV', 'CSV', 'CSV']
+agenda-publica-alcaldesa 2023-06-20T10:17:24.587446 ['CSV', 'CSV', 'CSV', 'CSV']
+agendes-publiques-regidors 2026-03-18T19:15:08.772063 ['CSV', 'CSV', 'CSV', 'CSV', 'CSV', 'CSV', 'CSV', 'CSV', 'CSV', 'CSV']
+np-piscines 2023-10-11T11:35:17.325471 ['CSV', 'JSON']
+np-molls 2023-10-11T11:34:53.344570 ['CSV', 'JSON']
+np-platges 2023-10-11T11:34:27.658795 ['CSV', 'JSON']
+np-quioscs-tramits 2023-10-11T11:34:02.361266 ['CSV', 'JSON']
+np-umbracles 2023-10-11T11:33:36.551352 ['CSV', 'JSON']
+np-jardins-botanics 2023-10-11T11:33:11.487956 ['CSV', 'JSON']
+np-jardins-interiors-illa 2023-10-11T11:32:48.552022 ['CSV', 'JSON']
+np-espais-gimnastica 2023-10-11T11:32:14.619366 ['CSV', 'JSON']
+np-plantes-depuradores 2023-10-11T11:31:46.169737 ['CSV', 'JSON']
+np-esculleres 2023-10-11T11:31:20.891812 ['CSV', 'JSON']
+np-circuits-caminar-correr 2023-10-11T11:30:53.587400 ['CSV', 'JSON']
+np-nasia-diposits-aigues-pluvials 2025-09-23T10:33:54.742247 ['CSV', 'JSON']
+np-nasia-fossars 2023-10-11T11:29:22.485100 ['CSV', 'JSON']
+np-nasia-miradors 2023-12-22T09:46:03.139777 ['CSV', 'JSON']
+xarxa-refugis-climatics 2025-09-23T10:47:03.224416 ['CSV', 'JSON']
+consolats-bcn 2023-10-11T11:28:27.689209 ['CSV', 'JSON']
+np-asia-dipositsvehicles-bcn 2023-10-11T11:27:23.660748 ['CSV', 'JSON']
+bancs-del-temps-bcn 2024-10-15T14:24:16.688187 ['CSV', 'JSON']
+lloguer-de-vehicles 2023-10-31T08:22:32.554128 ['CSV', 'JSON']
+funiculars 2023-10-31T08:15:32.053906 ['CSV', 'JSON']
+teleferics 2023-10-31T08:48:34.973782 ['CSV', 'JSON']
+estacions-maritimes 2023-10-31T08:14:40.368620 ['CSV', 'JSON']
+administracio-estatal 2023-10-31T07:23:38.668659 ['CSV', 'JSON']
+comissaries-policia 2023-10-31T07:56:38.885920 ['CSV', 'JSON']
+grans-centres-comercials 2023-10-31T08:18:19.405736 ['CSV', 'JSON']
+grans-establiments 2023-10-31T08:19:21.089475 ['CSV', 'JSON']
+galeries-comercials 2023-10-31T08:17:12.153987 ['CSV', 'JSON']
