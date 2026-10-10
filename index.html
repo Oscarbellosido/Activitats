@@ -449,7 +449,7 @@ async function carrega() {
   });
   const act = new Date(DADES.actualitzat);
   $('#estat').textContent = `${DADES.activitats.length.toLocaleString('ca')} activitats, actualitzades el ${act.getDate()} ${MESOS_LLARGS[act.getMonth()]} a les ${act.toLocaleTimeString('ca', { hour: '2-digit', minute: '2-digit' })}`
-    + (DADES.noves ? `. Avui n'hi ha ${DADES.noves} de noves` : '');
+    + (() => { const n = DADES.activitats.filter(esNova).length; return n ? `. Avui n'hi ha ${n.toLocaleString('ca')} de noves` : ''; })();
   pinta();
 }
 carrega();

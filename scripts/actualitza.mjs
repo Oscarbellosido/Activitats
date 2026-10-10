@@ -99,13 +99,15 @@ async function main() {
   // Si és la primera vegada que es veu una font, les seves activitats no compten com a noves
   const fontsNoves = new Set(FONTS.map(f => f.nom).filter(n => anterior && !(anterior.activitats || []).some(a => (a.font || 'generalitat') === n)));
   for (const a of activitats) if (fontsNoves.has(a.font) && a.vista === ara.data) a.vista = anterior?.primeraCarrega || ara.data;
-  const noves = anterior ? activitats.filter(a => a.vista === ara.data).length : 0;
+  const primeraCarrega = anterior?.primeraCarrega || ara.data;
+  // El primer dia (o el primer dia d'una font) no hi ha "noves": tot és nou
+  const noves = ara.data !== primeraCarrega ? activitats.filter(a => a.vista === ara.data).length : 0;
 
   const compta = clau => activitats.reduce((m, a) => { for (const v of [].concat(a[clau])) m[v] = (m[v] || 0) + 1; return m; }, {});
   const resultat = {
     actualitzat: new Date().toISOString(),
     dia: ara.data,
-    primeraCarrega: anterior?.primeraCarrega || ara.data,
+    primeraCarrega,
     fonts: estatFonts,
     total: activitats.length,
     noves,

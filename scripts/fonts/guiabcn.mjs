@@ -109,7 +109,12 @@ export async function baixaFont(avui) {
   for (const a of perId.values()) {
     const d = dates(a.quan);
     if (!d || d.fi < avui) continue; // "Acte permanent" o sense data: fora
-    const districte = (a.adreca.match(/\(([^()]+)\)\s*$/) || [])[1] || '';
+    const entreParèntesis = (a.adreca.match(/\(([^()]+)\)\s*$/) || [])[1] || '';
+    const districte = DISTRICTES[entreParèntesis] ? entreParèntesis : '';
+    // Algunes activitats de la Guia són de municipis veïns (p. ex. "(Hospitalet de llobregat, l')")
+    const municipi = /hospitalet/i.test(entreParèntesis) ? "L'Hospitalet de Llobregat"
+      : (!districte && entreParèntesis && !/\d|\b(c|pl|av|des|entre|davant)\b\.?/i.test(entreParèntesis) && entreParèntesis !== 'Barcelona')
+        ? entreParèntesis.replace(/\b\w/g, c => c.toUpperCase()) : 'Barcelona';
     const centre = DISTRICTES[districte];
     const preu = {
       gratis: { gratuit: true, preuMin: 0, preuMax: 0, preuText: 'Gratuït' },
@@ -129,11 +134,11 @@ export async function baixaFont(avui) {
       ...preu,
       preuRang: !!a.preu && a.preu !== 'gratis',
       provincia: 'Barcelona',
-      comarca: 'Barcelonès',
-      municipi: 'Barcelona',
+      comarca: municipi === 'Barcelona' || municipi.startsWith("L'Hospitalet") ? 'Barcelonès' : '',
+      municipi,
       districte,
       espai: a.on,
-      adreca: a.adreca.replace(/\s*\([^()]+\)\s*$/, ''),
+      adreca: districte || municipi !== 'Barcelona' ? a.adreca.replace(/\s*\([^()]+\)\s*$/, '') : a.adreca,
       lat: centre ? centre[0] : null,
       lon: centre ? centre[1] : null,
       aprox: !!centre,
