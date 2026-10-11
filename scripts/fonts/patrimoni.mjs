@@ -64,7 +64,9 @@ function llegeixFitxa(html) {
   return {
     titol: textNet((bloc.match(/<h2>([\s\S]*?)<\/h2>/) || [])[1]),
     inici: dataISO(camp("Data d'inici")),
-    fi: dataISO(camp('Data de fi') || camp('Data final') || camp("Data d'acabament")),
+    // Data de fi: qualsevol altre camp "Data ..." de la fitxa que no sigui el d'inici
+    fi: dataISO([...bloc.matchAll(/<label>(Data[^<]*?):?<\/label>\s*([\s\S]*?)<\/div>/gi)]
+      .filter(m => !/inici/i.test(m[1])).map(m => textNet(m[2])).find(t => dataISO(t)) || ''),
     espai: camp('Localització'),
     municipi: camp('Municipi'),
     horari: camp('Horari'),

@@ -101,7 +101,9 @@ async function main() {
     if (!millor && a.lat != null && ambLloc.length) {
       let dMin = Infinity;
       for (const b of ambLloc) { const d = (a.lat - b.lat) ** 2 + (a.lon - b.lon) ** 2; if (d < dMin) { dMin = d; millor = b; } }
-      if (dMin >= 0.02) millor = null;
+      // Comarca només si és a prop (~15 km); província fins a ~35 km
+      if (dMin >= 0.1) millor = null;
+      else if (dMin >= 0.02) { if (!PROVINCIES[String(a.provincia || '').toLowerCase()]) a.provincia = millor.provincia; millor = null; }
     }
     if (millor) { if (!PROVINCIES[String(a.provincia || '').toLowerCase()]) a.provincia = millor.provincia; a.comarca = a.comarca || millor.comarca; }
     if (!a.provincia) a.provincia = 'Sense ubicació';
