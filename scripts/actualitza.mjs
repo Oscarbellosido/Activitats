@@ -15,9 +15,10 @@ import { sumaDies, clauDuplicat, PROVINCIES, DIES_ENDAVANT } from './comu.mjs';
 import * as generalitat from './fonts/generalitat.mjs';
 import * as diba from './fonts/diba.mjs';
 import * as guiabcn from './fonts/guiabcn.mjs';
+import * as patrimoni from './fonts/patrimoni.mjs';
 
 // L'ordre importa: si una activitat surt a dues fonts, es queda la de la primera
-const FONTS = [generalitat, diba, guiabcn];
+const FONTS = [generalitat, patrimoni, diba, guiabcn];
 
 const ARREL = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SORTIDA = join(ARREL, 'data', 'activitats.json');
@@ -51,10 +52,11 @@ async function main() {
   console.log(`Actualitzant activitats — ${ara.text} (hora de Catalunya)`);
 
   // 1. Baixa cada font. Si una falla, es reaprofiten les seves activitats de l'última actualització.
+  // Totes les fonts es baixen alhora (són webs diferents i cadascuna respecta les seves pauses)
   const perFont = {}, estatFonts = {};
-  for (const f of FONTS) {
+  await Promise.all(FONTS.map(async f => {
     const prèvies = (anterior?.activitats || []).filter(a => (a.font || 'generalitat') === f.nom && a.fi >= ara.data);
-    if (NOMES && NOMES !== f.nom) { perFont[f.nom] = prèvies; estatFonts[f.nom] = anterior?.fonts?.[f.nom] || { ok: true }; continue; }
+    if (NOMES && NOMES !== f.nom) { perFont[f.nom] = prèvies; estatFonts[f.nom] = anterior?.fonts?.[f.nom] || { ok: true }; return; }
     const t0 = Date.now();
     try {
       const llista = (await f.baixaFont(ara.data, límit)).map(a => ({ ...a, font: f.nom }));
@@ -66,7 +68,7 @@ async function main() {
       estatFonts[f.nom] = { ok: false, etiqueta: f.etiqueta, error: e.message, activitats: prèvies.length };
       console.log(`  ✗ ${f.etiqueta}: ${e.message} — es mantenen ${prèvies.length} activitats d'ahir`);
     }
-  }
+  }));
   if (FONTS.every(f => !estatFonts[f.nom].ok)) throw new Error("Cap font ha funcionat: no s'actualitza res.");
 
   // 2. Fusiona, filtra i treu duplicats
@@ -86,13 +88,23 @@ async function main() {
     }
   }
 
-  // 3. Les que no tenen província o comarca: les de l'activitat amb ubicació completa més propera (~15 km)
-  const ambLloc = [...perId.values()].filter(a => PROVINCIES[a.provincia.toLowerCase()] && a.comarca && a.lat != null);
+  // 3. Les que no tenen província o comarca:
+  //    a) les d'una altra activitat del mateix municipi; b) les de l'activitat més propera (~15 km)
+  const completa = a => !!(PROVINCIES[String(a.provincia || '').toLowerCase()] && a.comarca);
+  const normMun = m => String(m || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]/g, '');
+  const perMunicipi = new Map();
+  for (const a of perId.values()) if (completa(a) && a.municipi && !perMunicipi.has(normMun(a.municipi))) perMunicipi.set(normMun(a.municipi), a);
+  const ambLloc = [...perId.values()].filter(a => completa(a) && a.lat != null);
   for (const a of perId.values()) {
-    if ((PROVINCIES[a.provincia.toLowerCase()] && a.comarca) || a.lat == null || !ambLloc.length) continue;
-    let millor = null, dMin = Infinity;
-    for (const b of ambLloc) { const d = (a.lat - b.lat) ** 2 + (a.lon - b.lon) ** 2; if (d < dMin) { dMin = d; millor = b; } }
-    if (dMin < 0.02) { if (!PROVINCIES[a.provincia.toLowerCase()]) a.provincia = millor.provincia; a.comarca = a.comarca || millor.comarca; }
+    if (completa(a)) continue;
+    let millor = perMunicipi.get(normMun(a.municipi));
+    if (!millor && a.lat != null && ambLloc.length) {
+      let dMin = Infinity;
+      for (const b of ambLloc) { const d = (a.lat - b.lat) ** 2 + (a.lon - b.lon) ** 2; if (d < dMin) { dMin = d; millor = b; } }
+      if (dMin >= 0.02) millor = null;
+    }
+    if (millor) { if (!PROVINCIES[String(a.provincia || '').toLowerCase()]) a.provincia = millor.provincia; a.comarca = a.comarca || millor.comarca; }
+    if (!a.provincia) a.provincia = 'Sense ubicació';
   }
 
   const activitats = [...perId.values()].sort((x, y) => x.inici.localeCompare(y.inici) || x.titol.localeCompare(y.titol, 'ca'));

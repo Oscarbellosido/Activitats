@@ -19,7 +19,7 @@ on:
         type: boolean
         default: true
       nomes:
-        description: "Només aquesta font (generalitat, diba o guiabcn); buit = totes"
+        description: "Només aquesta font (generalitat, patrimoni, diba o guiabcn); buit = totes"
         type: string
         default: ''
 
@@ -33,7 +33,7 @@ concurrency:
 jobs:
   actualitza:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -43,7 +43,7 @@ jobs:
         run: node scripts/actualitza.mjs ${{ (github.event_name == 'workflow_dispatch' && inputs.forca) && '--forca' || '' }} ${{ inputs.nomes && format('--nomes {0}', inputs.nomes) || '' }}
       - name: Desa els canvis
         run: |
-          git add data/activitats.json
+          git add data/activitats.json data/cache-patrimoni.json 2>/dev/null || git add data/activitats.json
           if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
           git config user.name "activitats-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

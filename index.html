@@ -172,7 +172,7 @@ footer a{color:inherit}
 </main>
 
 <footer class="wrap">
-  <p>Dades: <a href="https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f" target="_blank" rel="noopener">Agenda Cultural de Catalunya</a> (Generalitat), <a href="https://dadesobertes.diba.cat/" target="_blank" rel="noopener">Diputació de Barcelona</a> (turisme, biblioteques i museus) i <a href="https://guia.barcelona.cat/" target="_blank" rel="noopener">Guia Barcelona</a> (Ajuntament). S'actualitza cada dia a les 6 del matí. Confirma horaris i preus amb l'organitzador abans d'anar-hi.</p>
+  <p>Dades: <a href="https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f" target="_blank" rel="noopener">Agenda Cultural de Catalunya</a> (Generalitat), <a href="https://dadesobertes.diba.cat/" target="_blank" rel="noopener">Diputació de Barcelona</a> (turisme, biblioteques i museus), <a href="https://guia.barcelona.cat/" target="_blank" rel="noopener">Guia Barcelona</a> (Ajuntament) i <a href="https://patrimoni.gencat.cat/ca/agenda" target="_blank" rel="noopener">Agenda del Patrimoni Cultural</a>. S'actualitza cada dia a les 6 del matí. Confirma horaris i preus amb l'organitzador abans d'anar-hi.</p>
 </footer>
 
 <dialog id="fitxa"></dialog>
@@ -191,12 +191,12 @@ const PAS = 48;
 // To de color de la capçalera quan no hi ha foto, segons el tipus d'activitat
 const TONS = { 'Concerts': 265, 'Teatre': 345, 'Exposicions': 28, 'Infantil': 145, 'Literatura': 200, 'Festes': 8, 'Rutes i visites': 95,
   'Conferències': 215, 'Cursos i tallers': 175, 'Cinema': 290, 'Dansa': 320, 'Festivals': 50, 'Fires i mercats': 38, 'Esports': 120,
-  'Biblioteques': 190, 'Museus': 20, 'Jocs': 160, 'Circ': 0, 'Òpera': 300, 'Gastronomia': 25, 'Commemoracions': 240 };
+  'Biblioteques': 190, 'Museus': 20, 'Jocs': 160, 'Circ': 0, 'Òpera': 300, 'Gastronomia': 25, 'Commemoracions': 240, 'Portes obertes': 55, 'Patrimoni': 15 };
 const toCat = c => TONS[c] ?? 225;
 
 const QUAN = [['tot', 'Qualsevol dia'], ['avui', 'Avui'], ['dema', 'Demà'], ['cap', 'Aquest cap de setmana'], ['set', 'Pròxims 7 dies'], ['mes', 'Pròxims 30 dies']];
 const PREUS = [['tot', 'Tots els preus'], ['gratis', 'Gratuïtes'], ['30', 'Fins a 30 €'], ['60', 'De 30 a 60 €'], ['mes60', 'Més de 60 €'], ['nd', 'Preu sense indicar']];
-const FONTS = { generalitat: 'Agenda Cultural de Catalunya (Generalitat)', diba: 'Diputació de Barcelona', guiabcn: 'Guia Barcelona (Ajuntament)' };
+const FONTS = { generalitat: 'Agenda Cultural de Catalunya (Generalitat)', patrimoni: 'Agenda del Patrimoni Cultural (Generalitat)', diba: 'Diputació de Barcelona', guiabcn: 'Guia Barcelona (Ajuntament)' };
 const PROVS = ['Barcelona', 'Girona', 'Lleida', 'Tarragona'];
 
 let DADES = null, LLISTA = [], mostrats = PAS, mapa = null, capaMapa = null, posicio = null;
