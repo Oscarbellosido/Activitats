@@ -6,7 +6,8 @@ Agenda de concerts, teatre, exposicions, festes, fires i activitats de tot Catal
 - App: https://oscarbellosido.github.io/Activitats/
 - Fonts (totes oficials i públiques):
   - [Agenda Cultural de Catalunya](https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f) — Generalitat, dades obertes (tot Catalunya).
-  - [Diputació de Barcelona](https://dadesobertes.diba.cat/) — API de dades obertes: agendes de turisme, biblioteques i museus locals (província de Barcelona).
+  - [Diputació de Barcelona](https://dadesobertes.diba.cat/) — API de dades obertes: agendes de turisme, biblioteques, museus locals i parcs naturals (província de Barcelona).
+  - [Dades obertes AOC](https://dadesobertes.seu-e.cat/) — agendes municipals publicades al portal comú dels ajuntaments: Tarragona, l'Hospitalet, Gavà, Sant Andreu de la Barca, Vilanova i la Geltrú i Pla d'Urgell (`scripts/fonts/aoc.mjs`; per afegir-ne una, n'hi ha prou amb l'id del recurs i un lector de camps).
   - [Guia Barcelona](https://guia.barcelona.cat/) — agenda de l'Ajuntament de Barcelona (els propers 30 dies).
   - [Agenda del Patrimoni Cultural](https://patrimoni.gencat.cat/ca/agenda) — Generalitat: visites, portes obertes i tallers a museus i monuments.
 
@@ -18,6 +19,7 @@ GitHub Actions (cada dia, 6:00 de Catalunya, ~20 min)
      ├─ fonts/generalitat.mjs  (API Socrata)
      ├─ fonts/patrimoni.mjs    (HTML de patrimoni.gencat.cat; fitxes en memòria a data/cache-patrimoni.json)
      ├─ fonts/diba.mjs         (API do.diba.cat)
+     ├─ fonts/aoc.mjs          (API dadesobertes.seu-e.cat: agendes municipals)
      └─ fonts/guiabcn.mjs      (HTML de guia.barcelona.cat)
      → treu duplicats i activitats de fora de Catalunya → data/activitats.json → commit + push
                                                                     ↓
@@ -26,7 +28,7 @@ GitHub Actions (cada dia, 6:00 de Catalunya, ~20 min)
 
 - **No cal tenir el PC encès** ni cap API de pagament: tot passa a GitHub (gratuït en repos públics).
 - Si una font falla un dia, es mantenen les seves activitats de l'última actualització (i queda anotat a `fonts` del JSON).
-- Si una activitat surt a dues fonts (mateix títol, dia i municipi), es queda la de la primera (Generalitat > Patrimoni > Diputació > Guia).
+- Si una activitat surt a dues fonts (mateix títol, dia i municipi), es queda la de la primera (Generalitat > Patrimoni > Diputació > Ajuntaments AOC > Guia).
 - `scripts/actualitza.mjs` baixa les activitats vigents (fins a 6 mesos vista), les classifica i les compara amb
   les del dia anterior: les que no hi eren queden marcades com a **noves** (camp `vista` = data que es va veure per primer cop).
 - El workflow `.github/workflows/actualitza.yml` s'executa a les 4:00 i 5:00 UTC; l'script només actualitza quan
@@ -69,7 +71,8 @@ npx serve .                            # i obre http://localhost:3000
 Crea `scripts/fonts/<nom>.mjs` que exporti `nom`, `etiqueta` i `baixaFont(avui, límit)` (mateix format que les altres) i
 afegeix-lo a `FONTS` a `scripts/actualitza.mjs`.
 
-Fonts descartades: el fitxer d'agenda de dades obertes de l'Ajuntament de Barcelona (sense actualitzar des de 2021 i amb
+Agendes AOC descartades (només activitats passades o tràmits): el Prat, Castellar del Vallès, Sant Just Desvern, Sant Quirze del Vallès,
+Arenys de Munt i Santa Coloma de Gramenet. Fonts descartades: el fitxer d'agenda de dades obertes de l'Ajuntament de Barcelona (sense actualitzar des de 2021 i amb
 antirobots: per això es fa servir la Guia Barcelona), TresC i 3Cat (no publiquen les dades).
 La Guia Barcelona i patrimoni.gencat.cat tenen `Crawl-delay: 10` al robots.txt: no baixis la pausa entre peticions.
 Les fonts es baixen alhora (Promise.all); la més lenta (Guia, ~15 min) marca la durada.

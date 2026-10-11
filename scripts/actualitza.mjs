@@ -16,9 +16,10 @@ import * as generalitat from './fonts/generalitat.mjs';
 import * as diba from './fonts/diba.mjs';
 import * as guiabcn from './fonts/guiabcn.mjs';
 import * as patrimoni from './fonts/patrimoni.mjs';
+import * as aoc from './fonts/aoc.mjs';
 
 // L'ordre importa: si una activitat surt a dues fonts, es queda la de la primera
-const FONTS = [generalitat, patrimoni, diba, guiabcn];
+const FONTS = [generalitat, patrimoni, diba, aoc, guiabcn];
 
 const ARREL = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SORTIDA = join(ARREL, 'data', 'activitats.json');
@@ -120,7 +121,8 @@ async function main() {
   const compta = clau => activitats.reduce((m, a) => { for (const v of [].concat(a[clau])) m[v] = (m[v] || 0) + 1; return m; }, {});
   const resultat = {
     actualitzat: new Date().toISOString(),
-    dia: ara.data,
+    // Una actualització d'una sola font (--nomes) no compta com l'actualització del dia
+    dia: NOMES ? (anterior?.dia || ara.data) : ara.data,
     primeraCarrega,
     fonts: estatFonts,
     total: activitats.length,

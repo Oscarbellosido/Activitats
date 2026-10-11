@@ -1,9 +1,9 @@
 // Font: Diputació de Barcelona — API de dades obertes (do.diba.cat)
-// Tres agendes: turisme, biblioteques municipals i museus locals de la província de Barcelona.
-import { textNet, analitzaPreu, partData, fiRaonable, baixa, espera, PROVINCIA_PER_CP } from '../comu.mjs';
+// Quatre agendes: turisme, biblioteques municipals, museus locals i parcs naturals de la província de Barcelona.
+import { textNet, analitzaPreu, partData, fiRaonable, baixa, espera, PROVINCIA_PER_CP, categoritza } from '../comu.mjs';
 
 export const nom = 'diba';
-export const etiqueta = 'Diputació de Barcelona (turisme, biblioteques i museus)';
+export const etiqueta = 'Diputació de Barcelona (turisme, biblioteques, museus i parcs)';
 const API = 'https://do.diba.cat/api/dataset';
 const PAGINA = 5000;
 
@@ -11,26 +11,10 @@ const AGENDES = [
   { dataset: 'actesturisme_ca', origen: 'Turisme', perDefecte: 'Turisme' },
   { dataset: 'actesbiblioteques_ca', origen: 'Biblioteques', perDefecte: 'Biblioteques' },
   { dataset: 'actesmuseus', origen: 'Museus', perDefecte: 'Museus' },
+  { dataset: 'actesparcs', origen: 'Parcs naturals', perDefecte: 'Natura' },
 ];
 
-// Tipus i etiquetes de la Diputació → categories de l'app
-const MAPA = [
-  [/concert|m[uú]sica|recital/i, 'Concerts'], [/teatr|espectacle|monòleg|titelles/i, 'Teatre'], [/dansa|ball/i, 'Dansa'],
-  [/exposici/i, 'Exposicions'], [/conte|infantil|familiar|en fam[ií]lia|nadó|nens/i, 'Infantil'],
-  [/club de lectura|presentaci[oó] de llibre|lectura|poesia|literari|tert[uú]lia/i, 'Literatura'],
-  [/taller|curs|formaci/i, 'Cursos i tallers'], [/xerrada|confer[eè]ncia|col·loqui|jornad/i, 'Conferències'],
-  [/projecci|cinema|cinef/i, 'Cinema'], [/fira|mercat/i, 'Fires i mercats'], [/festa|tradici|cultura popular|carnaval/i, 'Festes'],
-  [/visit|ruta|senderisme|excursi|itinerari|patrimoni|paisatges/i, 'Rutes i visites'], [/festival/i, 'Festivals'],
-  [/gastronom|tast/i, 'Gastronomia'], [/esport|cursa|bicicleta/i, 'Esports'], [/videojoc|digital|robòtica/i, 'Cultura digital'],
-];
-
-function categories(e, perDefecte) {
-  const textos = [e.titol || '', ...(e.tipus || []), ...(e.public || []), ...(e.tags || [])].map(String);
-  const cats = new Set();
-  for (const t of textos) for (const [re, c] of MAPA) if (re.test(t)) cats.add(c);
-  if (!cats.size) cats.add(perDefecte);
-  return [...cats].slice(0, 4);
-}
+const categories = (e, perDefecte) => categoritza([e.titol || '', ...(e.tipus || []), ...(e.public || []), ...(e.tags || [])], perDefecte);
 
 function normalitza(e, ag) {
   const ini = partData(e.data_inici), fi = partData(e.data_fi);

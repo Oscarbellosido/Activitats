@@ -84,3 +84,21 @@ export async function baixa(url, { tipus = 'json', intents = 4, capçaleres = {}
 // Clau per detectar la mateixa activitat publicada a dues fonts
 export const clauDuplicat = a => `${a.inici}|${String(a.municipi || '').toLowerCase()}|${a.titol.toLowerCase()
   .normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim().slice(0, 40)}`;
+
+// Paraules clau → categories de l'app (per a fonts que no fan servir les mateixes categories)
+const MAPA = [
+  [/concert|m[uú]sica|recital|coral|cobla|orquestra/i, 'Concerts'], [/teatr|espectacle|monòleg|titelles|pallass/i, 'Teatre'], [/dansa|\bball/i, 'Dansa'],
+  [/exposici|\bexpo\b/i, 'Exposicions'], [/conte|infantil|familiar|en fam[ií]lia|nadó|nens|nenes|activitats familiars/i, 'Infantil'],
+  [/club de lectura|presentaci[oó] de(l)? llibre|lectura|poesia|literari|tert[uú]lia|literatura/i, 'Literatura'],
+  [/taller|\bcurs|formaci|aula de/i, 'Cursos i tallers'], [/xerrada|confer[eè]ncia|col·loqui|jornad|debat/i, 'Conferències'],
+  [/projecci|cinema|cinef|pel·l[ií]cula/i, 'Cinema'], [/fira|mercat/i, 'Fires i mercats'], [/festa|tradici|cultura popular|carnaval|castells|gegants/i, 'Festes'],
+  [/visit|ruta|senderisme|excursi|itinerari|patrimoni|paisatges|passejada/i, 'Rutes i visites'], [/festival/i, 'Festivals'],
+  [/gastron[oò]m|\btast|degustaci/i, 'Gastronomia'], [/esport|cursa|bicicleta|caminada/i, 'Esports'], [/videojoc|digital|robòtica/i, 'Cultura digital'],
+  [/natura|parc natural|ocells|bolets|bosc|medi ambient/i, 'Natura'],
+];
+export function categoritza(textos, perDefecte = 'Altres') {
+  const cats = new Set();
+  for (const t of [].concat(textos).map(x => String(x || ''))) for (const [re, c] of MAPA) if (re.test(t)) cats.add(c);
+  if (!cats.size) cats.add(perDefecte);
+  return [...cats].slice(0, 4);
+}
