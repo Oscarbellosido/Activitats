@@ -1,0 +1,103 @@
+gmap keys ['main_map']
+main_map markers 240
+{"latitude": 41.835803, "longitude": 2.807864, "markername": "big custom", "offset": 0, "text": "<div class=\"gmap-popup\">  \n  <div class=\"views-field views-field-title\">        <h4 class=\"field-content\"><a href=\"/ca/activitat/visita-guiada-gratuita-fonts-i-patrimoni\">Visita guiada gratuïta “Fonts i Patrimoni”</a></h4>  </div>  \n  <div class=\"views-field views-field-field-location\">        <p class=\"field-content\">Punt de sortida des de l'oficina de turisme</p>  </div></div>", "autoclick": 0, "opts": {"title": "", "highlight": 0, "highlightcolor": "#FF0000", "animation": "0"}}
+{"latitude": 41.83856, "longitude": 2.808269, "markername": "big custom", "offset": 1, "text": "<div class=\"gmap-popup\">  \n  <div class=\"views-field views-field-title\">        <h4 class=\"field-content\"><a href=\"/ca/activitat/jornada-de-portes-obertes-lespai-aquae-centre-museografic\"> Jornada de portes obertes a l’Espai Aquae, centre museogràfic</a></h4>  </div>  \n  <div class=\"views-field views-field-field-location\">        <p class=\"field-content\">Espai Aquae</p>  </div></div>", "autoclick": 0, "opts": {"title": "", "highlight": 0, "highlightcolor": "#FF0000", "animation": "0"}}
+{"latitude": 41.72491, "longitude": 1.823704, "markername": "big custom", "offset": 2, "text": "<div class=\"gmap-popup\">  \n  <div class=\"views-field views-field-title\">        <h4 class=\"field-content\"><a href=\"/ca/activitat/itinerari-que-diuen-les-pedres\">Itinerari ‘Què diuen les pedres?’</a></h4>  </div>  \n  <div class=\"views-field views-field-field-location\">        <p class=\"field-content\">Inici de la visita: Davant de l’Espai Manresa 1522, Carrer Mestre Blanch, 4 (Teatre Conservatori).\r\n</p>  </div></div>", "autoclick": 0, "opts": {"title": "", "highlight": 0, "highlightcolor": "#FF0000", "animation": "0"}}
+region-content">
+ <section id="block-system-main" class="block block-system clearfix">
+<!-- MODAL -->
+<div id="shareModal" class="modal fade" role="dialog">
+ <div class="modal-dialog">
+ <div class="modal-content">
+ <div class="modal-header">
+ <button type="button" class="close" data-dismiss="modal">&times;</button>
+ <span class="share-titol">
+ <h3>T’agrada aquest contingut? <br />Comparteix-lo a les xarxes socials! </h3>
+ </span>
+ </div>
+ <div class="share-buttons">
+ <span class="share-facebook">
+ <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://patrimoni.gencat.cat/ca/activitat/visita-guiada-gratuita-fonts-i-patrimoni">Facebook</a>
+ </span>
+ <span class="share-twitter">
+ <a target="_blank" href="https://twitter.com/home?status=Visita guiada gratuïta “Fonts i Patrimoni” https://patrimoni.gencat.cat/ca/activitat/visita-guiada-gratuita-fonts-i-patrimoni">Twitter</a>
+ </span>
+ <span class="share-pinterest">
+ <a target="_blank" href="https://pinterest.com/pin/create/button/?url=https://patrimoni.gencat.cat/ca/activitat/visita-guiada-gratuita-fonts-i-patrimoni&media=//cdn-patrimoni.atmosfera.net/sites/default/files/styles/detall-events/public/font-de-la-vaca-4-e1766396369976.jpg?itok=OZ9o_azx&description=Visita guiada gratuïta “Fonts i Patrimoni”">Pinterest</a>
+ </span>
+ </div>
+ </div>
+ </div>
+</div>
+<div class="table">
+ <div class="col-sm-4 column left">
+ <div id="event-scrollable" class="cont">
+ <h2>Visita guiada gratuïta “Fonts i Patrimoni”</h2>
+ <div><label>Data d'inici:</label> <span>11/10/2026</span></div>
+ <div></div> <div><label>Localització:</label> <span>Punt de sortida des de l'oficina de turisme</span></div> 
+ <div><label>Municipi:</label> <strong>Caldes de Malavella</strong></div> <div><label>Horari:</label> <span>A les 11 h </span></div> 
+ <div><label>Preu:</label> <span>Gratuït</span></div>
+ <div><label>Audiència:</label> <span>Públic general</span>, <span>Famílies</span>, <span>Grups</span>, <span>Professionals</span>, <span>Aficionats al patrimoni</span></div>
+ <div><label>Tipus d'activitat:</label> <span>Visita guiada</span></div>
+ <div>Visita Guiada "fonts i patrimoni"&nbsp;és un itinerari cultural a Caldes de Malavella per descobrir la història termal, el passat romà, medieval i modern del municipi.</div> 
+ <div></div>
+ <div></div>
+ <div></div>
+ <br />
+ <a target ="_blank" href="https://ticketara.com/esdeveniment/visita-guiada-a-caldes-de-malavella/575/session/20149" class="more">Més informació</a> 
+ <a class="link-enrere more" href="/ca/agenda/destacats">Cerca més activitats</a>
+ </div>
+ </div>
+ <div class="col-sm-8 column right">
+ <img class="agenda-main-photo" src="//cdn-patrimoni.atmosfera.net/sites/default/files/styles/detall-events/public/font-de-la-vaca-4-e1766396369976.jpg?itok=OZ9o_azx">
+ <div class="sub-bar">
+ <div class="col-sm-12 col-md-5 caption">
+ </div>
+ <div class="col-sm-6 col-md-2">
+ <button type="button" class="btn btn-info" data-toggle="modal" data-target="#shareModal">Share</button>
+ </div>
+ <div class="col-sm-6 col-md-5 buy-ticket">
+ <a href="https://ticketara.com/esdeveniment/visita-guiada-a-caldes-de-malavella/575/session/20149" target="_blank">Compra la teva entrada</a> </div>
+ </div>
+ </div>
+</div>
+<div class="event-body-wrapper">
+ <div class="txt"></div>
+</div>
+</section>
+ </div>
+ </section>
+ </div>
+</div>
+<footer class="footer">
+ <div class="sitemap">
+ <div class="container"> 
+ <div class="region region-sitemap-menu">
+<section id="block-menu-block-1" class="block block-menu-block col-sm-2 clearfix">
+ <h4><a href="/ca/descobreix">Descobreix</a></h4>
+ <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-957 menu-level-1">
+ <ul class="menu nav"><li class="first leaf menu-mlid-1016"><a href="/ca/descobreix/top-patrimoni">El top 25</a></li>
+<li class="leaf menu-mlid-1015"><a href="/ca/descobreix/cerca">Cerca el patrimoni</a></li>
+<li class="leaf menu-mlid-1070"><a href="/ca/timeline/all">Navega en el temps</a></li>
+<li class="leaf menu-mlid-653"><a href="/ca/descobreix/actualitat">Actualitat</a></li>
+<li class="leaf menu-mlid-4484"><a href="https://patrimoni.gencat.cat/ca/patrimoniunesco">Patrimoni UNESCO</a></li>
+<li class="leaf menu-mlid-3927"><a href="http://patrimoni.gencat.cat/ca/monuments">Els monuments de la Generalitat de Catalunya</a></li>
+<li class="leaf menu-mlid-2677"><a href="http://patrimoni.gencat.cat/xarxamuseusgirona">Els museus de Girona</a></li>
+<li class="leaf menu-mlid-2678"><a href="http://patrimoni.gencat.cat/museusdelleida">Els museus de Lleida i Aran</a></li>
+<li class="leaf menu-mlid-3455"><a href="http://patrimoni.gencat.cat/museusdetarragona">Els museus de Tarragona i les Terres de l&#039;Ebre</a></li>
+<li class="leaf menu-mlid-4490"><a href="https://patrimoni.gencat.cat/artrupestre">L&#039;art rupestre a Catalunya</a></li>
+<li class="leaf menu-mlid-5043"><a href="/ca/tresors-museus">Els tresors dels museus catalans</a></li>
+<li class="last leaf menu-mlid-5032"><a href="/ca/arqueologiacatalunya">L&#039;arqueologia a Catalunya</a></li>
+</ul></div>
+</section> <!-- /.block -->
+<section id="block-menu-block-2" class="block block-menu-block col-sm-2 clearfix">
+ <h4><a href="/ca/visita">Visita</a></h4>
+ <div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-634 menu-level-1">
+ <ul class="menu nav"><li class="first leaf menu-mlid-2303"><a href="/ca/idees/all">Escapades</a></li>
+<li class="leaf menu-mlid-657"><a href="/ca/agenda/destacats">L&#039;Agenda del patrimoni</a></li>
+<li class="leaf menu-mlid-1188"><a href="/ca/esdeveniments">Cites anuals</a></li>
+<li class="leaf menu-mlid-658"><a href="/ca/visita/rutes">Rutes</a></li>
+<li class="leaf menu-mlid-659"><a href="/ca/visita/apps">Apps per visitar</a></li>
+<li class="leaf menu-mlid-660"><a href="/ca/botiga">Compra en línia</a></li>
+<li class="leaf menu-mlid-2262"><a href="/ca/abonaments-i-descomptes">Abonaments i descomptes</a></li>
+<li class="last leaf menu-mlid-5066"><a href="/ca/ullsdelahistoria">Els ul
