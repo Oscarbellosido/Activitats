@@ -59,7 +59,9 @@ function normalitza(e, ag) {
     adreca: textNet(adr.adreca),
     lat: Number.isFinite(lat) && lat ? lat : null,
     lon: Number.isFinite(lon) && lon ? lon : null,
-    img: /^https?:\/\//.test(imatge) ? imatge : '',
+    // Sense imatge pròpia: la foto del municipi que publica la mateixa Diputació
+    img: /^https?:\/\//.test(imatge) ? imatge : (/^https?:\/\//.test(mun.municipi_vista || '') ? mun.municipi_vista : ''),
+    imgMunicipi: !/^https?:\/\//.test(imatge) && !!mun.municipi_vista,
     url: e.acte_url || e.url_general || '',
     entradesUrl: e.url_inscripcions || '',
     virtual: /virtual|en l[ií]nia|online/i.test((e.tipus || []).join(' ')) ? 'En línia' : '',

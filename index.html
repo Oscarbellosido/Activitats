@@ -81,7 +81,13 @@ select.sel{height:42px;border:1px solid var(--line);background:var(--card);borde
 .targeta:hover .titol{text-decoration:underline;text-decoration-thickness:2px}
 .foto{aspect-ratio:16/9;background:var(--blau-suau);position:relative;overflow:hidden}
 .foto img{width:100%;height:100%;object-fit:cover;display:block}
-.foto .sense{position:absolute;inset:0;display:grid;place-items:center;font:800 2.6rem var(--display);color:var(--blau);opacity:.35}
+.foto.buida{aspect-ratio:16/5;--h:225;background:hsl(var(--h) 70% 93%);display:flex;align-items:flex-end;padding:10px 14px}
+.foto.buida .sense{font:800 clamp(1.3rem,4vw,1.7rem)/1 var(--display);letter-spacing:-.02em;color:hsl(var(--h) 45% 38%)}
+.foto:not(.buida) .sense{display:none}
+.foto.buida .nova{position:static;margin-right:auto;align-self:flex-start}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .foto.buida{background:hsl(var(--h) 30% 20%)} :root:not([data-theme="light"]) .foto.buida .sense{color:hsl(var(--h) 65% 78%)}}
+:root[data-theme="dark"] .foto.buida{background:hsl(var(--h) 30% 20%)} :root[data-theme="dark"] .foto.buida .sense{color:hsl(var(--h) 65% 78%)}
+.peu-foto{position:absolute;left:8px;bottom:8px;font-size:.72rem;background:rgba(0,0,0,.55);color:#fff;padding:1px 8px;border-radius:999px}
 .cos{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .quan{font:700 .9rem var(--text);color:var(--blau)}
 .titol{font:700 1.12rem/1.22 var(--display);margin:0}
@@ -182,6 +188,11 @@ const DIES_SETM = ['dg.', 'dl.', 'dt.', 'dc.', 'dj.', 'dv.', 'ds.'];
 const MESOS = ['gen.', 'febr.', 'març', 'abr.', 'maig', 'juny', 'jul.', 'ag.', 'set.', 'oct.', 'nov.', 'des.'];
 const MESOS_LLARGS = ['de gener','de febrer','de març',"d'abril",'de maig','de juny','de juliol',"d'agost",'de setembre',"d'octubre",'de novembre','de desembre'];
 const PAS = 48;
+// To de color de la capçalera quan no hi ha foto, segons el tipus d'activitat
+const TONS = { 'Concerts': 265, 'Teatre': 345, 'Exposicions': 28, 'Infantil': 145, 'Literatura': 200, 'Festes': 8, 'Rutes i visites': 95,
+  'Conferències': 215, 'Cursos i tallers': 175, 'Cinema': 290, 'Dansa': 320, 'Festivals': 50, 'Fires i mercats': 38, 'Esports': 120,
+  'Biblioteques': 190, 'Museus': 20, 'Jocs': 160, 'Circ': 0, 'Òpera': 300, 'Gastronomia': 25, 'Commemoracions': 240 };
+const toCat = c => TONS[c] ?? 225;
 
 const QUAN = [['tot', 'Qualsevol dia'], ['avui', 'Avui'], ['dema', 'Demà'], ['cap', 'Aquest cap de setmana'], ['set', 'Pròxims 7 dies'], ['mes', 'Pròxims 30 dies']];
 const PREUS = [['tot', 'Tots els preus'], ['gratis', 'Gratuïtes'], ['30', 'Fins a 30 €'], ['60', 'De 30 a 60 €'], ['mes60', 'Més de 60 €'], ['nd', 'Preu sense indicar']];
@@ -300,7 +311,7 @@ function pintaFiltres() {
 function targeta(a) {
   const lloc = [a.espai, a.municipi + (a.districte ? ` (${a.districte})` : '')].filter(Boolean).join(', ') || a.provincia;
   return `<article class="targeta" data-id="${esc(a.id)}" tabindex="0" role="button" aria-label="${esc(a.titol)}">
-    <div class="foto">${a.img ? `<img loading="lazy" src="${esc(a.img)}" alt="" onerror="this.remove()">` : ''}<span class="sense" aria-hidden="true">${esc((a.categories[0] || 'A')[0])}</span>
+    <div class="foto${a.img ? '' : ' buida'}" style="--h:${toCat(a.categories[0])}">${a.img ? `<img loading="lazy" src="${esc(a.img)}" alt="" onerror="this.parentNode.classList.add('buida');this.parentNode.querySelector('.peu-foto')?.remove();this.remove()">` : ''}<span class="sense" aria-hidden="true">${esc(a.categories[0] || 'Activitat')}</span>${a.imgMunicipi ? `<span class="peu-foto">${esc(a.municipi)}</span>` : ''}
       ${a.img ? '' : ''}${esNova(a) ? '<span class="nova">Nova</span>' : ''}
       <button class="desa" data-desa="${esc(a.id)}" aria-pressed="${desades.has(a.id)}" aria-label="Desa l'activitat">${desades.has(a.id) ? '♥' : '♡'}</button></div>
     <div class="cos">
