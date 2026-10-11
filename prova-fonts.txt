@@ -1,0 +1,70 @@
+=== AOC: cerca de conjunts 'agenda'
+Q agenda count 27
+ | Ajuntament de Vilanova i la Geltrú | Agenda | vilanovailageltru-agenda | 2026-05-29 | [('CSV', '22d7de56-2769-401b-ae03-4c2fee0e92d1')]
+ | Consell Comarcal del Tarragonès | Agenda institucional | cctarragones-agenda-institucional | 2026-09-30 | [('CSV', '31c1ad37-119c-4480-8d93-46a45fcb52c3')]
+ | Ajuntament de Manlleu | Agenda Política | manlleu-agenda-politica | 2026-10-01 | [('CSV', '57fd1953-7e1e-4626-b30e-b047217bb64a')]
+ | Ajuntament de Sant Andreu de la Barca | Recull Agenda | santandreudelabarca-recull-agenda | 2026-10-10 | [('CSV', 'e7a5b4c8-c0ef-4de4-b462-ef816144aa18')]
+ | Ajuntament de l'Hospitalet de Llobregat | Agenda institucional | hospitaletdellobregat-agenda-institucional | 2026-10-09 | [('CSV', '7e107e22-b6a2-4865-a426-41681f4171dc')]
+ | Ajuntament de Palau-solità i Plegamans | Agenda Alcalde | palau-solitaiplegamans-agenda-alcalde | 2026-09-30 | [('CSV', 'b331818d-3192-4562-9c44-0fe237283997')]
+ | Consell Comarcal del Pla d'Urgell | Agenda Cultural | ccpladurgell-agenda-cultural | 2026-10-07 | [('CSV', 'c49378f3-3b8b-4506-b0e7-7dff80ee9e10'), ('CSV', '008f0e20-d2ae-41f1-8ade-0061bd28395f')]
+ | Ajuntament de Tarragona | Agenda d'activitats | tarragona-activitats-culturals-a-tarragona | 2026-09-30 | [('CSV', '5368e11e-cfe3-4a8d-b3e9-936df0550d5b')]
+ | Ajuntament de Manlleu | Agenda 2030 Manlleu | manlleu-agenda-2030-manlleu | 2026-10-01 | [('CSV', '21eeecff-1ee9-432c-aeaa-818b40199965'), ('CSV', '79233828-1c0f-4c42-9f13-6f2847a41bd8')]
+ | Ajuntament de Gava | Agenda de la ciutat | gava-agenda-de-la-ciutat-agenda-de-la-ciudad | 2026-10-01 | [('CSV', 'f2caf121-c752-4347-8f70-9f633954be5e')]
+ | Ajuntament de l'Hospitalet de Llobregat | Agenda de la ciutat | hospitaletdellobregat-agenda-de-la-ciutat | 2026-10-11 | [('CSV', 'fd1d251a-fa70-4522-b805-a964f063c6c8')]
+ | Ajuntament de Rubí | Agenda institucional dels alts càrrecs | rubi-agenda-institucional-dels-alts-carrecs | 2026-10-01 | [('CSV', '57fad8a0-0e76-4d15-b6ef-4331f55de6f2'), ('CSV', 'fac2174d-c1cb-47cc-8917-b527920dbe7f')]
+ | Ajuntament de Sant Quirze del Vallès | Agenda d'activitats realitzades | santquirzedelvalles-agenda-d-activitats-realitzades | 2026-09-30 | [('CSV', 'bd83115d-98fa-4fba-b5f2-7cf1e3d9718f')]
+ | Ajuntament de Santa Coloma de Gramenet | Activitats de l'Agenda | santacolomadegramenet-activitats-de-l-agenda | 2026-06-26 | [('CSV', 'a5e2d374-2548-45f1-960f-c39fe10e9ba6')]
+ | Ajuntament de Castellar del Vallès | Agenda d’activitats realitzades | castellardelvalles-agenda-d-activitats-realitzades | 2026-10-11 | [('CSV', 'a43451c8-a27a-42dd-91ff-28538de892f7')]
+ | Ajuntament del Prat de Llobregat | Agenda d'activitats realitzades | elpratdellobregat-agenda-d-activitats-realitzades | 2026-09-30 | [('CSV', '07dff259-89ab-4540-b5f8-aa59f9dcd24e')]
+ | Global | Agenda política municipal (DIBA) | agenda-politica-municipal-diba | 2026-10-11 | [('CSV', 'f3083292-8473-4050-9c79-2ab6f14d762d')]
+ | Ajuntament de Sant Just Desvern | Agenda d'activitats realitzades | santjustdesvern-agenda-d-actes-i-activitats-del-municipi | 2026-09-30 | [('CSV', 'c548687b-bca6-4b22-ad4a-96771adfd114')]
+ | Ajuntament de Tarragona | Agenda de Consellers per Any | tarragona-agenda-consellers | 2026-09-30 | [('CSV', 'f42e17bb-7f71-418c-878d-da8b9cc511ac'), ('CSV', '5b6df5ca-e12b-41d4-bbbd-c07842d72cf5'), ('CSV', '9b1459f2-d7fc-42e3-947c-b2f33aaf344e')]
+ | Ajuntament de Lleida | Agenda de turisme de Lleida | lleida-turisme-lleida | 2026-09-30 | [('RSS', '26d2cce7-a7a1-4b67-8180-1cea9baff456')]
+ | Ajuntament de Castellar del Vallès | Agenda institucional dels alts càrrecs | castellardelvalles-agenda-institucional-alts-carrecs | 2026-10-10 | [('CSV', '888e737f-3802-4dfe-a0a4-0ba95d4ff056')]
+ | Global | Agenda política municipal històric (DIBA) | agenda-politica-municipal-historic-diba | 2026-10-10 | [('CSV', 'ba1a58fa-a1d5-42f1-b0ca-59943641fa0c')]
+ | Ajuntament de Sant Feliu de Llobregat | Esdeveniments diaris al municipi | sant-feliu-de-llobregat-llistat-d-esdeveniments-diaris | 2026-10-11 | [('CSV', '6353e8e8-53ea-47d9-b121-c4bdeac915a5')]
+ | Ajuntament d'Arenys de Munt | Agenda d'actes i activitats del municipi | arenysdemunt-agenda-d-actes-i-activitats-del-municipi | 2026-09-30 | [('CSV', 'f1b28caf-63d5-4234-8ccb-49c9e9a45893')]
+ | Ajuntament de Manlleu | Datasets publicats al portal en clau Agenda 2030 | manlleu-datasets-publicats-al-portal-en-clau-agenda-2030 | 2026-10-01 | [('CSV', 'b82eb967-b835-4b3a-ae94-0ecfcda16205')]
+ | Ajuntament d'Arenys de Munt | Contenidors per a la recollida de residus i reciclatge | arenysdemunt-agenda2021-csv | 2026-09-30 | [('CSV', 'b573d492-8809-4a3b-bbbd-14cb7dad5ca4')]
+Q agenda+activitats count 13
+ | Ajuntament de Tarragona | Agenda d'activitats | tarragona-activitats-culturals-a-tarragona | 2026-09-30 | [('CSV', '5368e11e-cfe3-4a8d-b3e9-936df0550d5b')]
+ | Ajuntament de Sant Quirze del Vallès | Agenda d'activitats realitzades | santquirzedelvalles-agenda-d-activitats-realitzades | 2026-09-30 | [('CSV', 'bd83115d-98fa-4fba-b5f2-7cf1e3d9718f')]
+ | Ajuntament de Castellar del Vallès | Agenda d’activitats realitzades | castellardelvalles-agenda-d-activitats-realitzades | 2026-10-11 | [('CSV', 'a43451c8-a27a-42dd-91ff-28538de892f7')]
+ | Ajuntament de Santa Coloma de Gramenet | Activitats de l'Agenda | santacolomadegramenet-activitats-de-l-agenda | 2026-06-26 | [('CSV', 'a5e2d374-2548-45f1-960f-c39fe10e9ba6')]
+ | Ajuntament del Prat de Llobregat | Agenda d'activitats realitzades | elpratdellobregat-agenda-d-activitats-realitzades | 2026-09-30 | [('CSV', '07dff259-89ab-4540-b5f8-aa59f9dcd24e')]
+ | Ajuntament de Sant Just Desvern | Agenda d'activitats realitzades | santjustdesvern-agenda-d-actes-i-activitats-del-municipi | 2026-09-30 | [('CSV', 'c548687b-bca6-4b22-ad4a-96771adfd114')]
+ | Ajuntament de Gava | Agenda de la ciutat | gava-agenda-de-la-ciutat-agenda-de-la-ciudad | 2026-10-01 | [('CSV', 'f2caf121-c752-4347-8f70-9f633954be5e')]
+ | Ajuntament de Sant Feliu de Llobregat | Esdeveniments diaris al municipi | sant-feliu-de-llobregat-llistat-d-esdeveniments-diaris | 2026-10-11 | [('CSV', '6353e8e8-53ea-47d9-b121-c4bdeac915a5')]
+ | Ajuntament d'Arenys de Munt | Agenda d'actes i activitats del municipi | arenysdemunt-agenda-d-actes-i-activitats-del-municipi | 2026-09-30 | [('CSV', 'f1b28caf-63d5-4234-8ccb-49c9e9a45893')]
+ | Consell Comarcal del Tarragonès | Agenda institucional | cctarragones-agenda-institucional | 2026-09-30 | [('CSV', '31c1ad37-119c-4480-8d93-46a45fcb52c3')]
+ | Ajuntament de Rubí | Agenda institucional dels alts càrrecs | rubi-agenda-institucional-dels-alts-carrecs | 2026-10-01 | [('CSV', '57fad8a0-0e76-4d15-b6ef-4331f55de6f2'), ('CSV', 'fac2174d-c1cb-47cc-8917-b527920dbe7f')]
+ | Global | Agenda política municipal (DIBA) | agenda-politica-municipal-diba | 2026-10-11 | [('CSV', 'f3083292-8473-4050-9c79-2ab6f14d762d')]
+ | Global | Agenda política municipal històric (DIBA) | agenda-politica-municipal-historic-diba | 2026-10-10 | [('CSV', 'ba1a58fa-a1d5-42f1-b0ca-59943641fa0c')]
+Q activitats+culturals count 4
+ | Ajuntament de Tarragona | Agenda d'activitats | tarragona-activitats-culturals-a-tarragona | 2026-09-30 | [('CSV', '5368e11e-cfe3-4a8d-b3e9-936df0550d5b')]
+ | Global | Cens d'activitats municipals amb establiment (GIA-DIBA) | cens-activitats-economiques-ens-locals-gia-diba | 2026-10-09 | [('CSV', '78e43942-9eed-4de0-a058-a2256cf4a266')]
+Q esdeveniments count 3
+ | Ajuntament de Sant Feliu de Llobregat | Esdeveniments diaris al municipi | sant-feliu-de-llobregat-llistat-d-esdeveniments-diaris | 2026-10-11 | [('CSV', '6353e8e8-53ea-47d9-b121-c4bdeac915a5')]
+ | Consell Comarcal del Pla d'Urgell | Agenda Cultural | ccpladurgell-agenda-cultural | 2026-10-07 | [('CSV', 'c49378f3-3b8b-4506-b0e7-7dff80ee9e10'), ('CSV', '008f0e20-d2ae-41f1-8ade-0061bd28395f')]
+=== Tarragona datastore
+total 2944
+['_id', 'TITOL', 'UID', 'ADRECA', 'URL', 'inici', 'fi', 'latitud', 'longitud', 'categories', 'dies', 'CODI_ENS', 'NOM_ENS']
+{"_id": 1, "TITOL": "Exposició Experiències Matemàtiques", "UID": "b861b4d5-ed94-46a2-a743-5b52dfe8703d", "ADRECA": "Institut Municipal d'Educació de Tarragona (IMET)", "URL": "https://www.tarragona.cat/educacio/agenda/2026/exposicio-experiencies-matematiques", "inici": "2025-10-04 17:00:00.0", "fi": "2026-05-30 20:00:00.0", "latitud": "41.1159768577", "longitud": "1.24207735062", "categories": "[\"Activitats familiars\",\"Exposicions\"]", "dies": "238", "CODI_ENS": "4314820002", "NOM_ENS": "AJUNTAMENT DE TARRAGONA"}
+{"_id": 2, "TITOL": "Aula de dansa. Creació i experimentació", "UID": "ea625b63-58aa-4d71-b189-ad69a446c6b5", "ADRECA": "Espai Jove Kesse", "URL": "https://www.tarragona.cat/la-ciutat/agenda/2026/joventut/aula-de-dansa.-creacio-i-experimentacio", "inici": "2025-10-07 16:30:00.0", "fi": "2026-06-09 18:00:00.0", "latitud": "41.1195432", "longitud": "1.2471317", "categories": "[\"Cursos i tallers\",\"Dansa\"]", "dies": "245", "CODI_ENS": "4314820002", "NOM_ENS": "AJUNTAMENT DE TARRAGONA"}
+=== Tarragona CSV
+"TITOL","UID","ADRECA","URL",inici,fi,"latitud","longitud","categories",dies,"CODI_ENS","NOM_ENS"
+"Exposició Experiències Matemàtiques","b861b4d5-ed94-46a2-a743-5b52dfe8703d","Institut Municipal d'Educació de Tarragona (IMET)","https://www.tarragona.cat/educacio/agenda/2026/exposicio-experiencies-matematiques",2025-10-04 17:00:00.0,2026-05-30 20:00:00.0,"41.1159768577","1.24207735062","[""Activitats familiars"",""Exposicions""]",238,"4314820002","AJUNTAMENT DE TARRAGONA"
+"Aula de dansa. Creació i experimentació","ea625b63-58aa-4d71-b189-ad69a446c6b5","Espai Jove Kesse","https://www.tarragona.cat/la-ciutat/agenda/2026/joventut/aula-de-dansa.-creacio-i-experimentacio",2025-10-07 16:30:00.0,2026-06-09 18:00:00.0,"41.1195432","1.2471317","[""Cursos i tallers"",""Dansa""]",245,"4314820002","AJUNTAMENT DE TARRAGONA"
+"Aula de cinema i producció audiovisual","882bea4f-6d77-43d5-81d3-3fd1d4985841","Espai Jove Kesse","https://www.tarragona.cat/la-ciutat/agenda/2026/joventut/aula-de-cinema-i-produccio-audiovisual",2025-10-07 16:45:00.0,2026-06-09 18:15:00.0,"41.1195432","1.2471317","[""Cursos i tallers"",""Cinema"",""Altres""]",245,"4314820002","AJUNTAMENT DE TARRAGONA"
+"Aula de teatre jove","60808ae0-30f1-497a-a3c4-f5d25123e681","Espai Jove Kesse","https://www.tarragona.cat/la-ciutat/agenda/2026/joventut/aula-de-teatre-jove",2025-10-07 18:30:00.0,2026-06-09 20:00:00.0,"41.1195432","1.2471317","[""Teatre"",""Cursos i tallers""]",245,"4314820002","AJUNTAMENT DE TARRAGONA"
+"Arcurl: (23) Failure writing output to destination
+
+=== Diba parcs
+total 2979 vigents 232 None
+  Guilleries - Parcs en concert 2026 - Mar Grimalt i Carles Me 2026-10-16 00:00:00  False
+  Montseny - Concurs de Dibuix Infantil 2026-09-17 00:00:00  False
+  Montseny - Els colors amagats del Montseny a la tardor, al P 2026-10-12 00:00:00  False
+  Montseny - Masia Mariona: un univers per descobrir 2026-12-06 00:00:00  False
+  Montseny - Masia Mariona: un univers per descobrir 2026-11-14 00:00:00  False
+{"error":"La seva consulta no ha trobat cap resultat"}
+{"nom":"Agenda electes","machinename":"actesdiba_ca","descripcio":"Agenda electes","paraules_clau":["agenda"],"llicencia":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/deed.ca","freq_actualitzaci
