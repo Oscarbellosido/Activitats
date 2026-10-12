@@ -31,8 +31,11 @@ GitHub Actions (cada dia, 6:00 de Catalunya, ~20 min)
 - Si una activitat surt a dues fonts (mateix títol, dia i municipi), es queda la de la primera (Generalitat > Patrimoni > Diputació > Ajuntaments AOC > Guia).
 - `scripts/actualitza.mjs` baixa les activitats vigents (fins a 6 mesos vista), les classifica i les compara amb
   les del dia anterior: les que no hi eren queden marcades com a **noves** (camp `vista` = data que es va veure per primer cop).
-- El workflow `.github/workflows/actualitza.yml` s'executa a les 4:00 i 5:00 UTC; l'script només actualitza quan
-  ja són les 6 a Catalunya i avui encara no s'ha fet (així sempre és a les 6, sigui horari d'estiu o d'hivern).
+- **Despertador** (`despertador/`): un Cloudflare Worker amb cron (4:05 i 5:05 UTC) que crida l'API de GitHub per llançar
+  el workflow, perquè les execucions programades de GitHub arriben amb hores de retard o no arriben. El workflow també té
+  hores programades de reserva. L'script només actualitza quan ja són les 6 a Catalunya i avui encara no s'ha fet, així que
+  els avisos repetits no fan res. El token de GitHub (fine-grained, només aquest repo, permís Actions: write) és un secret
+  del worker (`npx wrangler secret put GITHUB_TOKEN`), mai al codi. Desplegar: `cd despertador && npx wrangler deploy`.
 - Per actualitzar a mà: pestanya **Actions → Actualitza activitats → Run workflow** (pots indicar una sola font a "Només aquesta font").
 
 ## Classificació
