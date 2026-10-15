@@ -8,13 +8,13 @@ Agenda de concerts, teatre, exposicions, festes, fires i activitats de tot Catal
   - [Agenda Cultural de Catalunya](https://analisi.transparenciacatalunya.cat/d/rhpv-yr4f) — Generalitat, dades obertes (tot Catalunya).
   - [Diputació de Barcelona](https://dadesobertes.diba.cat/) — API de dades obertes: agendes de turisme, biblioteques, museus locals i parcs naturals (província de Barcelona).
   - [Dades obertes AOC](https://dadesobertes.seu-e.cat/) — agendes municipals publicades al portal comú dels ajuntaments: Tarragona, l'Hospitalet, Gavà, Sant Andreu de la Barca, Vilanova i la Geltrú i Pla d'Urgell (`scripts/fonts/aoc.mjs`; per afegir-ne una, n'hi ha prou amb l'id del recurs i un lector de camps).
-  - [Guia Barcelona](https://guia.barcelona.cat/) — agenda de l'Ajuntament de Barcelona (els propers 30 dies).
+  - [Guia Barcelona](https://guia.barcelona.cat/) — agenda de l'Ajuntament de Barcelona (el mes vinent sencer i, amb una passada més lleugera, fins a 90 dies: categories sense subdividir les consultes de més de 500).
   - [Agenda del Patrimoni Cultural](https://patrimoni.gencat.cat/ca/agenda) — Generalitat: visites, portes obertes i tallers a museus i monuments.
 
 ## Com funciona
 
 ```
-GitHub Actions (cada dia, 6:00 de Catalunya, ~20 min)
+GitHub Actions (cada dia, 6:00 de Catalunya, ~25 min)
   node scripts/actualitza.mjs
      ├─ fonts/generalitat.mjs  (API Socrata)
      ├─ fonts/patrimoni.mjs    (HTML de patrimoni.gencat.cat; fitxes en memòria a data/cache-patrimoni.json)
@@ -78,7 +78,7 @@ Agendes AOC descartades (només activitats passades o tràmits): el Prat, Castel
 Arenys de Munt i Santa Coloma de Gramenet. Fonts descartades: el fitxer d'agenda de dades obertes de l'Ajuntament de Barcelona (sense actualitzar des de 2021 i amb
 antirobots: per això es fa servir la Guia Barcelona), TresC i 3Cat (no publiquen les dades).
 La Guia Barcelona i patrimoni.gencat.cat tenen `Crawl-delay: 10` al robots.txt: no baixis la pausa entre peticions.
-Les fonts es baixen alhora (Promise.all); la més lenta (Guia, ~15 min) marca la durada.
+Les fonts es baixen alhora (Promise.all); la més lenta (Guia, ~23 min) marca la durada.
 
 ## Notes
 - El repo és PÚBLIC: mai hi posis claus, correus personals ni secrets.

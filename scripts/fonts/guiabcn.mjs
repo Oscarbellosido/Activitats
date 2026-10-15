@@ -3,13 +3,16 @@
 // però la Guia mostra els resultats en HTML senzill amb filtres (tipus, districte, gratuït, preu).
 // Cada consulta retorna com a molt 500 resultats, així que es divideix per tipus i, si cal, per districte.
 // Es respecta el "Crawl-delay: 10" del seu robots.txt.
-import { textNet, espera, baixa } from '../comu.mjs';
+// El mes vinent es baixa sencer; del segon i el tercer mes, una passada més lleugera (per als actes grans
+// que s'anuncien amb antelació, com Els Llums de Sant Pau).
+import { textNet, espera, baixa, sumaDies, categoritza } from '../comu.mjs';
 
 export const nom = 'guiabcn';
 export const etiqueta = "Guia Barcelona (Ajuntament de Barcelona)";
 
-const BASE = 'https://guia.barcelona.cat/ca/llistat?pg=search&tipuscerca=agenda&cerca=*:*&tr=619&c=00619*&sort=proxdate,asc&d=mes&nr=500';
+const BASE = 'https://guia.barcelona.cat/ca/llistat?pg=search&tipuscerca=agenda&cerca=*:*&tr=619&c=00619*&sort=proxdate,asc&nr=500';
 const MAX = 500;
+const DIES_LLUNY = 90; // fins on arriba la passada lleugera
 const PAUSA = Number(process.env.PAUSA_GUIA ?? 10_000); // robots.txt: Crawl-delay: 10
 
 // Tipus de la Guia (code0) → categories de l'app
@@ -75,13 +78,13 @@ export async function baixaFont(avui) {
     }
   };
   // Baixa un filtre; si té més de 500 resultats, el divideix per districte (i després per gratuït/pagament)
-  async function recull(filtres, extra, nivell = 0) {
+  async function recull(filtres, extra, nivell = 0, divideix = true) {
     const html = await pàgina(filtres);
     const its = items(html), f = facetes(html);
     const dists = Object.entries(f).filter(([k]) => k.startsWith('districtstr='));
     const total = dists.reduce((s, [, n]) => s + n, 0);
     afegeix(its, extra);
-    if (its.length < MAX || total <= MAX) return;
+    if (!divideix || its.length < MAX || total <= MAX) return;
     const divisions = nivell === 0 ? dists : Object.entries(f).filter(([k]) => k.startsWith('ticket='));
     for (const [k, n] of divisions) {
       if (!n || nivell > 1) continue;
@@ -89,21 +92,31 @@ export async function baixaFont(avui) {
     }
   }
 
-  const inici = await pàgina('');
-  const fac = facetes(inici);
-  console.log(`    Guia Barcelona: ${Object.keys(fac).length} filtres trobats`);
-  if (!Object.keys(fac).some(k => k.startsWith('code0='))) throw new Error('La Guia Barcelona ha canviat el format (no es troben els tipus)');
-  afegeix(items(inici));
+  // Una passada: llistat sencer, tipus (categories) i preus d'un període de dates
+  async function període(quan, { complet }) {
+    const inici = await pàgina(quan);
+    const fac = facetes(inici);
+    if (!Object.keys(fac).some(k => k.startsWith('code0='))) throw new Error('La Guia Barcelona ha canviat el format (no es troben els tipus)');
+    // La passada lleugera no surt sencera a la primera pàgina: es completa per districtes
+    if (complet) afegeix(items(inici));
+    else await recull(quan, {});
+    for (const [k, n] of Object.entries(fac).filter(([k]) => k.startsWith('code0='))) {
+      const cat = TIPUS[k.slice(6)];
+      if (!cat || !n) continue;
+      await recull(`${quan}&${k}`, { cat }, 0, complet); // lleugera: si un tipus passa de 500, en falten algunes categories
+    }
+    // Preus: gratuït i trams (es processen de més car a més barat; el gratuït preval)
+    for (const [k, preu] of [['p=mes60', 'mes60'], ['p=de30a60', 'de30a60'], ['p=de1a30', 'de1a30'], ['ticket=3', 'gratis']]) {
+      if (fac[k]) await recull(`${quan}&${k}`, { preu });
+    }
+    return Object.keys(fac).length;
+  }
 
-  for (const [k, n] of Object.entries(fac).filter(([k]) => k.startsWith('code0='))) {
-    const cat = TIPUS[k.slice(6)];
-    if (!cat || !n) continue;
-    await recull(`&${k}`, { cat });
-  }
-  // Preus: gratuït i trams (es processen de més car a més barat; el gratuït preval)
-  for (const [k, preu] of [['p=mes60', 'mes60'], ['p=de30a60', 'de30a60'], ['p=de1a30', 'de1a30'], ['ticket=3', 'gratis']]) {
-    if (fac[k]) await recull(`&${k}`, { preu });
-  }
+  const filtres = await període('&d=mes', { complet: true });
+  console.log(`    Guia Barcelona: ${filtres} filtres trobats; ${perId.size} activitats el mes vinent`);
+  const abans = perId.size;
+  await període(`&dt=${sumaDies(avui, 28)},${sumaDies(avui, DIES_LLUNY)}`, { complet: false });
+  console.log(`    Guia Barcelona: ${perId.size - abans} més fins a ${DIES_LLUNY} dies`);
 
   const resultat = [];
   for (const a of perId.values()) {
@@ -130,7 +143,7 @@ export async function baixaFont(avui) {
       inici: d.inici,
       fi: d.fi,
       horari: '',
-      categories: a.cats.size ? [...a.cats] : ['Altres'],
+      categories: a.cats.size ? [...a.cats] : categoritza(a.titol),
       ...preu,
       preuRang: !!a.preu && a.preu !== 'gratis',
       provincia: 'Barcelona',
