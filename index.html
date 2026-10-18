@@ -199,6 +199,9 @@ const QUAN = [['tot', 'Qualsevol dia'], ['avui', 'Avui'], ['dema', 'Demà'], ['c
 const PREUS = [['tot', 'Tots els preus'], ['gratis', 'Gratuïtes'], ['30', 'Fins a 30 €'], ['60', 'De 30 a 60 €'], ['mes60', 'Més de 60 €'], ['nd', 'Preu sense indicar']];
 const FONTS = { generalitat: 'Agenda Cultural de Catalunya (Generalitat)', patrimoni: 'Agenda del Patrimoni Cultural (Generalitat)', diba: 'Diputació de Barcelona', aoc: 'Agenda municipal', guiabcn: 'Guia Barcelona (Ajuntament)' };
 const PROVS = ['Barcelona', 'Girona', 'Lleida', 'Tarragona'];
+const CIUTAT = 'Barcelona ciutat'; // filtre especial: municipi de Barcelona, i el desplegable passa a ser de districtes
+const passaProv = (a, p) => p === CIUTAT ? a._bcn : a.provincia === p;
+const zona = a => S.prov === CIUTAT ? a._districte : a.comarca;
 
 let DADES = null, LLISTA = [], mostrats = PAS, mapa = null, capaMapa = null, posicio = null;
 const S = Object.assign({ quan: 'tot', dia: null, preu: 'tot', prov: null, comarca: '', cat: null, noves: false, cerca: '', vista: 'llista' },
@@ -254,8 +257,8 @@ function filtra(excepte) {
     if (S.vista === 'desades') return desades.has(a.id);
     if (excepte !== 'quan' && !(a.inici <= d1 && a.fi >= d0)) return false;
     if (excepte !== 'preu' && !passaPreu(a)) return false;
-    if (excepte !== 'prov' && S.prov && a.provincia !== S.prov) return false;
-    if (excepte !== 'comarca' && excepte !== 'prov' && S.comarca && a.comarca !== S.comarca) return false;
+    if (excepte !== 'prov' && S.prov && !passaProv(a, S.prov)) return false;
+    if (excepte !== 'comarca' && excepte !== 'prov' && S.comarca && zona(a) !== S.comarca) return false;
     if (excepte !== 'cat' && S.cat && !a.categories.includes(S.cat)) return false;
     if (excepte !== 'noves' && S.noves && !esNova(a)) return false;
     if (q && !a._cerca.includes(q)) return false;
@@ -296,13 +299,14 @@ function pintaFiltres() {
   const cPreu = amb('preu', (a, v) => passaPreu(a, v));
   $('#f-preu').innerHTML = PREUS.map(([v, t]) => xip('preu', v, t, v === 'tot' ? null : cPreu(v), S.preu === v, v === 'gratis' ? 'gratis' : '')).join('')
     + xip('noves', 'noves', 'Noves d\'avui', filtra('noves').filter(esNova).length, S.noves, 'noves');
-  const cProv = amb('prov', (a, v) => a.provincia === v);
-  $('#f-prov').innerHTML = xip('prov', '', 'Tot Catalunya', null, !S.prov) + PROVS.map(p => xip('prov', p, p, cProv(p), S.prov === p)).join('');
+  const cProv = amb('prov', passaProv);
+  $('#f-prov').innerHTML = xip('prov', '', 'Tot Catalunya', null, !S.prov) + [PROVS[0], CIUTAT, ...PROVS.slice(1)].map(p => xip('prov', p, p, cProv(p), S.prov === p)).join('');
   const bCom = filtra('comarca'); const com = {};
-  bCom.forEach(a => { if (a.comarca) com[a.comarca] = (com[a.comarca] || 0) + 1; });
+  bCom.forEach(a => { const z = zona(a); if (z) com[z] = (com[z] || 0) + 1; });
   const llistaCom = Object.keys(com).sort((x, y) => x.localeCompare(y, 'ca'));
   if (S.comarca && !com[S.comarca]) llistaCom.unshift(S.comarca);
-  $('#f-comarca').innerHTML = `<option value="">Totes les comarques${S.prov ? ` de ${S.prov}` : ''}</option>` +
+  $('#f-comarca').setAttribute('aria-label', S.prov === CIUTAT ? 'Districte' : 'Comarca');
+  $('#f-comarca').innerHTML = `<option value="">${S.prov === CIUTAT ? 'Tots els districtes' : `Totes les comarques${S.prov ? ` de ${S.prov}` : ''}`}</option>` +
     llistaCom.map(c => `<option value="${esc(c)}" ${S.comarca === c ? 'selected' : ''}>${esc(c)} (${com[c] || 0})</option>`).join('');
   const bCat = filtra('cat'); const cats = {};
   bCat.forEach(a => a.categories.forEach(c => cats[c] = (cats[c] || 0) + 1));
@@ -457,6 +461,10 @@ async function carrega() {
   DADES.activitats = DADES.activitats.filter(a => a.fi >= avui);
   DADES.activitats.forEach(a => {
     a._durada = (dt(a.fi) - dt(a.inici)) / 864e5;
+    // Barcelona ciutat: la Guia dona el districte; la Diputació l'escriu al municipi ("Barcelona - Eixample")
+    const mBcn = String(a.municipi || '').match(/^Barcelona(?: - (.+))?$/);
+    a._bcn = !!mBcn;
+    a._districte = mBcn ? (a.districte || mBcn[1] || '') : '';
     a._cerca = [a.titol, a.subtitol, a.espai, a.municipi, a.districte, a.comarca, a.categories.join(' '), a.desc].join(' ').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   });
   const act = new Date(DADES.actualitzat);
